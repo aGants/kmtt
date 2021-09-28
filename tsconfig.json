@@ -9,6 +9,8 @@
     "outDir": "./public",
     "rootDir": "./src",
     "strict": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators":true,
     "moduleResolution": "node",
     "noUnusedLocals": true,
     "noUnusedParameters": true,

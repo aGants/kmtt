@@ -8,23 +8,29 @@ module.exports = {
   entry: './main.ts',
   output: {
     filename: '[name].[contenthash].js',
-    path: path.resolve(__dirname, 'public')
+    path: path.resolve(__dirname, 'public'),
+    publicPath: '/'
   },
   resolve: {
     extensions: ['.vue', '.ts', '.js'],
     alias: {
-      '@': path.resolve(__dirname, 'src'),
+      '@': path.resolve(__dirname, 'src/'),
     }
   },
   module: {
     rules: [
       {
-        test: /\.(ttf|woff|woff2|eot||svg)$/,
-        use: ['file-loader']
-      },
-      {
-        test: /\.s[ac]ss$/,
-        use: [ 'vue-style-loader', 'css-loader', 'sass-loader']
+        test: /\.scss$/,
+        use: [ 'vue-style-loader', 'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              additionalData: `
+                @import "@/styles/_variables.scss";
+              `
+            }
+          }
+        ],
       },
       {
         test: /\.js$/,
@@ -35,14 +41,11 @@ module.exports = {
         }
       },
       {
-        test: /\.ts$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        loader: 'ts-loader',
         options: {
-          presets: [ 
-            '@babel/preset-env', 
-            '@babel/preset-typescript' 
-        ]
+          appendTsSuffixTo: [/\.vue$/], 
         }
       },
       {
@@ -50,10 +53,10 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'vue-loader',
         options: {
-          presets: [ 
-            '@babel/preset-env',
-            '@babel/babel-preset-vue'
-          ]
+          loaders: {
+            ts: 'ts-loader'
+          },
+          esModule: true
         }
       }
     ]
