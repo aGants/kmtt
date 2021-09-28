@@ -1,19 +1,52 @@
 <template>
-<div>
-
-<h1>KMTT admin</h1>
-
-</div>
+  <div id="app" class="app">
+    <aside-block />
+    <main class="main">
+    </main>
+  </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+import AsideBlock from './components/AsideBlock.vue'
+const feather = require('feather-icons')
+
+  export default {
+    name: 'App',
+    components: {
+      AsideBlock
+    },
+    data() {
+      return {
+      }
+    },
+  }
 </script>
 
 <style lang="scss">
-body {
+  * {
+    margin: 0;
+    padding: 0;
+  }
 
-}
+  html {
+    font: 16px $font;
+    color: $textcolor;
+    background: $bgcolor;
+  }
+
+  .app {
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+
+  .icon {
+    color: red;
+  }
+
+  .aside {
+    margin: 20px 0px;
+    border-right: 2px solid $bordercolor;
+  }
 </style>
