@@ -10,8 +10,8 @@
 
 <script lang="ts">
 import LogoSettings from './LogoSettings.vue'
-import MenuBlock from './MenuBlock.vue'
-import menu from '../config/menu.json'
+import MenuBlock from './NavBlock.vue'
+import menu from '../../config/menu.json'
 
 export default {
   name: 'AsideBlock',

@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import { ChevronDownIcon } from 'vue-feather-icons'
-import  Vue /*, {PropType} */ from 'vue'
+import  Vue from 'vue'
 
 export default Vue.extend({
   name: 'LogoSettings',

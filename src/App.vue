@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import AsideBlock from './components/AsideBlock.vue'
+import AsideBlock from './components/AdminPanel/AsideBlock.vue'
 const feather = require('feather-icons')
 
   export default {

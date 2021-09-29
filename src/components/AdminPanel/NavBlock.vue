@@ -9,14 +9,13 @@
         {{ block.title }} 
       </p>
 
-      <li 
+      <li
         v-for="page in block.pages"
         :key="page.id"
         class="nav-ul-li"
+        :page="page"
       >
-        <p class="nav-ul-li__link">
           {{ page.name }}
-        </p>
       </li>
 
     </ul>
@@ -24,8 +23,8 @@
 </template>
 
 <script lang="ts">
-import  Vue, {PropType} from 'vue'
-import  Section from '../interfaces/Menu'
+import Vue, {PropType} from 'vue'
+import Section from '../../interfaces/Menu'
 
 export default Vue.extend({
   props: {
@@ -33,33 +32,39 @@ export default Vue.extend({
       required: true,
       type: Array as PropType<Section[]>
     }
-  }
+  },
+  components: { }
 })
 
 </script>
+    RouterLink
 
 <style lang="scss">
-$paddingleft: 30px;
+$paddingleft: 25px;
 
 .nav {
   padding-top: 30px;
   &-ul {
     font: 600 17px $font;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
     &__title {
+      margin-bottom: 10px;
       padding-left: $paddingleft;
       color: $subcolor;
       letter-spacing: 1px;
       text-transform: uppercase;
     }
     &-li {
+      width: 360px;
+      margin-top: 0px;
+      padding: 7px 0px;
+      padding-left: $paddingleft;
       font: 400 20px $font;
       line-height: 30px;
       list-style-type: none;
-      margin-top: 15px;
-      &__link {
-        width: 360px;
-        padding-left: $paddingleft;
+      cursor: pointer;
+      &:hover, &.active {
+        background: $bghover;
       }
     }
   }
