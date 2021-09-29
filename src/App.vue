@@ -1,8 +1,7 @@
 <template>
   <div id="app" class="app">
     <aside-block />
-    <main class="main">
-    </main>
+    <router-view />
   </div>
 </template>
 

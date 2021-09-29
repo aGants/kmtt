@@ -1,45 +1,82 @@
 [
   {
     "title": "Статистика",
+    "id": "statistics",
     "pages": [
       { "id": "publications",
-        "name": "Публикации"
+        "name": "Публикации",
+        "components": [
+          {
+            "type": "TableComponent",
+            "id": "12",
+            "name": "Таблица публикации"
+          },
+          {
+            "type": "ButtonComponent",
+            "id": "123",
+            "name": "Кнопка публикации"
+          }
+        ]
       },
       {
         "id": "messenger",
-        "name": "Мессенджер"
+        "name": "Мессенджер",
+        "components": {
+
+        }
       }
     ]
   },
 
   {
     "title": "",
+    "id": "subscribe",
     "pages": [
       {
         "id": "subscription",
-        "name": "Подписка на еженедельную рассылку"
+        "name": "Подписка на еженедельную рассылку",
+        "components": [
+          {
+            "type": "ButtonComponent",
+            "id": "124",
+            "name": "Кнопка подписки"
+          }
+        ]
       }
     ]
   },
 
   {
     "title": "Списки данных",
+    "id": "dataList",
     "pages": [
       {
         "id": "cities",
-        "name": "Доступные города"
+        "name": "Доступные города",
+        "components": {
+
+        }
       },
       {
         "id": "blockedUsers",
-        "name": "Заблокированные пользователи"
+        "name": "Заблокированные пользователи",
+        "components": {
+
+        }
       },
       {
         "id": "blackList",
-        "name": "Чёрный список ссылок"
+        "name": "Чёрный список ссылок",
+        "components": {
+
+        }
       },
       {
         "id": "userSettings",
-        "name": "Управление пользователем"
+        "name": "Управление пользователем",
+        "components": {
+
+        }
       }
     ]
   }

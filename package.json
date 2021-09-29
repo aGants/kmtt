@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "serve": "webpack-dev-server --mode development",
+    "serve": "webpack-dev-server --mode development --history-api-fallback",
     "eslint": "eslint './src/*.{js,ts,tsx,vue}'",
     "build": "webpack --mode production"
   },
@@ -44,6 +44,7 @@
   "dependencies": {
     "@babel/preset-typescript": "^7.15.0",
     "feather-icons": "^4.28.0",
+    "vue-router": "^3.5.2",
     "vuex": "^3.6.2"
   }
 }

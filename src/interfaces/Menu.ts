@@ -1,9 +1,11 @@
 export default interface Page {
   name: string;
-  id?: string;
+  id: string;
+  content?: object 
 }
 
 export default interface Section {
   title: string,
-  pages: Array<Page>,
+  id: string,
+  pages: Page[],
 }

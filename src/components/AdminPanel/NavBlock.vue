@@ -9,14 +9,16 @@
         {{ block.title }} 
       </p>
 
-      <li
+       <router-link
+        class="nav-ul-li"
+        active-class="active"
+        tag="li"
         v-for="page in block.pages"
         :key="page.id"
-        class="nav-ul-li"
-        :page="page"
+        :to="{ name: 'Page', params: { id: block.id, page: page.id }  }"
       >
           {{ page.name }}
-      </li>
+      </router-link>
 
     </ul>
   </nav>
@@ -63,10 +65,13 @@ $paddingleft: 25px;
       line-height: 30px;
       list-style-type: none;
       cursor: pointer;
-      &:hover, &.active {
-        background: $bghover;
+      &:hover {
+        color: #fff;
       }
     }
   }
+}
+.active {
+  background: $bghover;
 }
 </style>
