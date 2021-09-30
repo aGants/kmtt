@@ -1,10 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router';
 import PageBlock from '../components/AdminPanel/PageBlock.vue'
-// import menu from '../config/menu.json'
 
 Vue.use(VueRouter)
-
 
 const routes =  [
   {

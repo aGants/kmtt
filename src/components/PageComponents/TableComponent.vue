@@ -1,10 +1,11 @@
 <template>
-  <h1>Таблица</h1>
+  <h1>{{ component.name }}</h1>
 </template>
 
 <script>
 export default {
-  name: 'TableComponent'
+  name: 'TableComponent',
+  props: { component: Object }
 }
 </script>
 

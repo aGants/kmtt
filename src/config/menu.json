@@ -14,7 +14,8 @@
           {
             "type": "ButtonComponent",
             "id": "123",
-            "name": "Кнопка публикации"
+            "name": "Кнопка публикации",
+            "url": "https://dtf.ru/"
           }
         ]
       },
@@ -39,7 +40,8 @@
           {
             "type": "ButtonComponent",
             "id": "124",
-            "name": "Кнопка подписки"
+            "name": "Кнопка подписки",
+            "url": "https://vc.ru/"
           }
         ]
       }

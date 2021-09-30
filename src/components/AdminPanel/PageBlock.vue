@@ -29,8 +29,8 @@ export default{
       id: this.$route.params['id'],
       page: this.$route.params['page'],
       menu: menu,
-      section: {title: ''},
-      content: {name: ''},
+      section: null,
+      content: null,
     }
   },
   created() {
