@@ -7,11 +7,6 @@
         "name": "Публикации",
         "components": [
           {
-            "type": "TableComponent",
-            "id": "12",
-            "name": "Таблица публикации"
-          },
-          {
             "type": "ButtonComponent",
             "id": "123",
             "name": "Кнопка публикации",
@@ -22,9 +17,7 @@
       {
         "id": "messenger",
         "name": "Мессенджер",
-        "components": {
-
-        }
+        "components": []
       }
     ]
   },
@@ -40,7 +33,13 @@
           {
             "type": "ButtonComponent",
             "id": "124",
-            "name": "Кнопка подписки",
+            "name": "Кнопка подписаться",
+            "url": "https://vc.ru/"
+          },
+          {
+            "type": "ButtonComponent",
+            "id": "125",
+            "name": "Кнопка отписаться",
             "url": "https://vc.ru/"
           }
         ]
@@ -55,30 +54,88 @@
       {
         "id": "cities",
         "name": "Доступные города",
-        "components": {
-
-        }
+        "components": []
       },
       {
         "id": "blockedUsers",
         "name": "Заблокированные пользователи",
-        "components": {
-
-        }
+        "components": []
       },
       {
         "id": "blackList",
         "name": "Чёрный список ссылок",
-        "components": {
-
-        }
+        "components": []
       },
       {
         "id": "userSettings",
         "name": "Управление пользователем",
-        "components": {
-
-        }
+        "components": [
+          {
+            "type": "TableComponent",
+            "id": "12",
+            "name": "Таблица публикации",
+            "keys": [
+              { "icon": "ListIcon", "title": "ID", "id": "id" },
+              { "icon": "UserIcon", "title": "Имя", "id": "name" },
+              { "icon": "AtSignIcon", "title": "Email", "id": "email" },
+              { "icon": "InfoIcon", "title": "Статус", "id": "status" },
+              { "icon": "DiscIcon", "title": "Действия", "id": "action" }
+            ],
+            "data": [
+              {
+                "id": {
+                  "link": "#", 
+                  "name": "56723"
+                },
+                "name": "Alex Stone", 
+                "email": "alexstone.greatsoul@gmail.com",
+                "status": 
+                  { 
+                    "icon": "CheckIcon",
+                    "color": "green",
+                    "text": "Активен"
+                  },
+                "action": "..."
+              },
+              {
+                "id": {
+                  "link": "#",
+                  "name": "67832"
+                }, 
+                "name": "Marta Stone", 
+                "email": "martastone.greatheart@gmail.com",
+                "status": 
+                  { 
+                    "icon": "CheckIcon",
+                    "color": "green",
+                    "text": "Активен"
+                  },
+                "action": "..."
+              },
+              {
+                "id": {
+                  "link": "#",
+                  "name": "78943"
+                }, 
+                "name": "John White", 
+                "email": "johnwhite.block@gmail.com",
+                "status": 
+                  { 
+                    "icon": "XIcon",
+                    "color": "red",
+                    "text": "Не активен"
+                  },
+                "action": "..."
+              }
+            ]
+          },
+          {
+            "type": "ButtonComponent",
+            "id": "123",
+            "name": "Кнопка публикации",
+            "url": "https://dtf.ru/"
+          }
+        ]
       }
     ]
   }

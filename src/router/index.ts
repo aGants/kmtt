@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router';
-import PageBlock from '../components/AdminPanel/PageBlock.vue'
+import PageBlock from '../components/PageBlock.vue'
 
 Vue.use(VueRouter)
 

@@ -28,7 +28,7 @@ const feather = require('feather-icons')
   }
 
   html {
-    font: 16px $font;
+    font: 18px $font;
     color: $textcolor;
     background: $bgcolor;
   }
@@ -44,8 +44,4 @@ const feather = require('feather-icons')
     color: red;
   }
 
-  .aside {
-    margin: 20px 0px;
-    border-right: 2px solid $bordercolor;
-  }
 </style>

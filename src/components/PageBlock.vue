@@ -15,9 +15,9 @@
 </template>
 
 <script>
-import menu from '../../config/menu.json'
-import ButtonComponent from '../PageComponents/ButtonComponent.vue'
-import TableComponent from '../PageComponents/TableComponent.vue'
+import menu from '../config/menu.json'
+import ButtonComponent from './PageComponents/ButtonComponent.vue'
+import TableComponent from './PageComponents/TableComponent.vue'
 
 export default{
   name: 'PageBlock',
@@ -51,6 +51,7 @@ export default{
 <style lang="scss">
 
 .main {
+  width: 100%;
   padding: 42px 60px;
   &__title {
     font: 400 20px $font;

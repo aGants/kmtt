@@ -14,7 +14,7 @@ export default {
 <style lang="scss">
 .button {
   display: inline-block;
-  margin: 10px 0;
+  margin: 10px 5px 10px 0;
   padding: 10px 20px;
   font: 13px $font;
   color: #fff;
