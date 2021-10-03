@@ -44,6 +44,19 @@
               ></component>
               {{ name.text }}
             </span>
+            <button v-else-if="name === 'action'" class="table-td-action">
+              {{ component.action.name }}
+              <popup-window> 
+                <li v-for="(item, index) in component.action.list" :key="index" class="popup__li">
+                  <span v-if="item.objectName == true">
+                    {{ item.title }} {{ value.name }}
+                  </span> 
+                  <span v-else>
+                    {{ item.title }} 
+                  </span>
+                </li>
+              </popup-window>
+            </button>
             <span v-else class="table-td__text">
               {{ name }}
             </span>
@@ -55,16 +68,19 @@
 
 <script>
 import { ListIcon, UserIcon, AtSignIcon, InfoIcon, DiscIcon, CheckIcon, XIcon } from 'vue-feather-icons'
+import PopupWindow from '../PopupWindow.vue'
 
 export default {
   name: 'TableComponent',
   props: { component: Object },
-  components: { ListIcon, UserIcon, AtSignIcon, InfoIcon, DiscIcon, CheckIcon, XIcon }
+  components: { 
+    PopupWindow, 
+    ListIcon, UserIcon, AtSignIcon, InfoIcon, DiscIcon, CheckIcon, XIcon
+  }
 }
 </script>
 
 <style lang="scss">
-
 .table { 
   width: 100%;
   margin: 10px 0px;
@@ -86,8 +102,9 @@ export default {
   &-td {
     padding: 10px;
     border: 1px solid $tablecolor;
+    line-height: 19px;
     &__icon {
-      white-space: nowrap;	
+      white-space: nowrap;
     }
     &__link {
       color: $linkcolor;
@@ -97,6 +114,13 @@ export default {
         color: $linkhover;
         border-color: $linkhover;
       }
+    }
+    &-action {
+      position: relative;
+      all: unset;
+      display: block;
+      margin: 0 auto;
+      cursor: pointer;
     }
   }
 }

@@ -81,6 +81,14 @@
               { "icon": "InfoIcon", "title": "Статус", "id": "status" },
               { "icon": "DiscIcon", "title": "Действия", "id": "action" }
             ],
+            "action": {
+              "name": "• • •",
+              "list": [
+                { "title": "Удалить", "objectName": true, "action": "" }, 
+                { "title": "Редактировать", "objectName": false, "action": "" },
+                { "title": "Забанить", "objectName": false, "action": "" }
+              ]
+            },
             "data": [
               {
                 "id": {
@@ -95,7 +103,7 @@
                     "color": "green",
                     "text": "Активен"
                   },
-                "action": "..."
+                "action": "action"
               },
               {
                 "id": {
@@ -110,7 +118,7 @@
                     "color": "green",
                     "text": "Активен"
                   },
-                "action": "..."
+                "action": "action"
               },
               {
                 "id": {
@@ -125,7 +133,7 @@
                     "color": "red",
                     "text": "Не активен"
                   },
-                "action": "..."
+                "action": "action"
               }
             ]
           },
