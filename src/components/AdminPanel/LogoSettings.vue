@@ -6,20 +6,10 @@
     <span class="logo__title">KMTT admin</span>
     <div class="logo__icon">
       <span class="logo__icon-down">
-        <ChevronDownIcon size="2x" />
-        <popup-window>
-          <li class="popup__li">
-            <span><SettingsIcon size="1x" /></span>
-            <span>Основные настройки</span>
-          </li>
-          <li class="popup__li">
-            <span><MenuIcon size="1x" /></span>
-            <span>Настроить меню</span>
-          </li>
-          <li class="popup__li">
-            <span><AlertTriangleIcon size="1x" /></span>
-            <span>Сообщить о проблеме</span>
-          </li>
+        <popup-window 
+          :action="setting"
+        >
+          <ChevronDownIcon size="2x"/>
         </popup-window>
       </span>
     </div>
@@ -27,14 +17,21 @@
 </template>
 
 <script lang="ts">
-import { ChevronDownIcon, SettingsIcon, MenuIcon, AlertTriangleIcon} from 'vue-feather-icons'
 import  Vue from 'vue'
+import { ChevronDownIcon, SettingsIcon, MenuIcon, AlertTriangleIcon} from 'vue-feather-icons'
 import PopupWindow from '../PopupWindow.vue'
+import setting from '../../config/setting.json'
+import Setting from '../../interfaces/Setting'
 
 export default Vue.extend({
   name: 'LogoSettings',
   components: { ChevronDownIcon, SettingsIcon, MenuIcon, AlertTriangleIcon,
-  PopupWindow }
+  PopupWindow },
+  data() {
+    return {
+      setting: setting as Array<Setting>
+    }
+  }
 })
 </script>
 
@@ -62,7 +59,6 @@ export default Vue.extend({
   }
   &__icon {
     color: $subcolor;
-    line-height: 0px;
     flex-grow: 2;
     text-align: right;
     margin-right: 0px;

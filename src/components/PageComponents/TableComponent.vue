@@ -7,15 +7,18 @@
           :key="key.id"
           class="table-th"
         >
+
           <span class="table-th__icon">
             <component
               :is="key.icon"
               size="1x"
             ></component>
           </span>
+          
           <span class="table-th__title">
             {{ key.title }}
           </span>
+
         </th>
       </tr>
     </thead>
@@ -29,6 +32,7 @@
           v-for="(name, index) in value"
           :key="index"
           class="table-td">
+
             <a
               v-if="name.name"
               :href="name.link"
@@ -36,6 +40,7 @@
             >
                 {{ name.name }}
             </a>
+
             <span v-else-if="name.icon" class="table-td__icon">
               <component
                   :is="name.icon"
@@ -44,22 +49,19 @@
               ></component>
               {{ name.text }}
             </span>
-            <button v-else-if="name === 'action'" class="table-td-action">
+
+            <popup-window 
+              v-else-if="name === 'action'" 
+              :action="component.action.list" 
+              :targetName="value.name"
+              > 
               {{ component.action.name }}
-              <popup-window> 
-                <li v-for="(item, index) in component.action.list" :key="index" class="popup__li">
-                  <span v-if="item.objectName == true">
-                    {{ item.title }} {{ value.name }}
-                  </span> 
-                  <span v-else>
-                    {{ item.title }} 
-                  </span>
-                </li>
-              </popup-window>
-            </button>
+            </popup-window>
+
             <span v-else class="table-td__text">
               {{ name }}
             </span>
+            
         </td>
       </tr>
     </tbody>
@@ -76,7 +78,7 @@ export default {
   components: { 
     PopupWindow, 
     ListIcon, UserIcon, AtSignIcon, InfoIcon, DiscIcon, CheckIcon, XIcon
-  }
+  },
 }
 </script>
 
@@ -100,6 +102,7 @@ export default {
     }
   }
   &-td {
+    position: relative;
     padding: 10px;
     border: 1px solid $tablecolor;
     line-height: 19px;
@@ -114,13 +117,6 @@ export default {
         color: $linkhover;
         border-color: $linkhover;
       }
-    }
-    &-action {
-      position: relative;
-      all: unset;
-      display: block;
-      margin: 0 auto;
-      cursor: pointer;
     }
   }
 }

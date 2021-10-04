@@ -1,0 +1,14 @@
+[
+  {
+    "icon": "SettingsIcon",
+    "title": "Основные настройки"
+  },
+  {
+    "icon": "MenuIcon",
+    "title": "Настроить меню"
+  },
+  {
+    "icon": "AlertTriangleIcon",
+    "title": "Сообщить о проблеме"
+  }
+]
