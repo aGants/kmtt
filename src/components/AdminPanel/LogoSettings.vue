@@ -3,7 +3,13 @@
     <div class="logo__img">
       <span>KMTT</span>
     </div>
-    <span class="logo__title">KMTT admin</span>
+    <router-link 
+      tag="a" 
+      class="logo__title" 
+      to="/"
+    >
+      KMTT admin
+    </router-link>
     <div class="logo__icon">
       <span class="logo__icon-down">
         <popup-window 
@@ -20,7 +26,6 @@
 import  Vue from 'vue'
 import { ChevronDownIcon, SettingsIcon, MenuIcon, AlertTriangleIcon} from 'vue-feather-icons'
 import PopupWindow from '../PopupWindow.vue'
-import setting from '../../config/setting.json'
 import Setting from '../../interfaces/Setting'
 
 export default Vue.extend({
@@ -29,9 +34,12 @@ export default Vue.extend({
   PopupWindow },
   data() {
     return {
-      setting: setting as Array<Setting>
+      setting: [] as Array<Setting>
     }
-  }
+  },
+  created() {
+      this.setting = this.$store.getters.getSetting;
+  },
 })
 </script>
 
@@ -56,6 +64,10 @@ export default Vue.extend({
     margin: 0 15px;
     font: bold 19px $font;
     color: $maincolor;
+    text-decoration: none;
+    &:hover {
+      color: $textcolor;
+    }
   }
   &__icon {
     color: $subcolor;

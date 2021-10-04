@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import { ListIcon, UserIcon, AtSignIcon, InfoIcon, DiscIcon, CheckIcon, XIcon } from 'vue-feather-icons'
+import { ListIcon, UserIcon, AtSignIcon, InfoIcon, DiscIcon, CheckIcon, XIcon, HomeIcon } from 'vue-feather-icons'
 import PopupWindow from '../PopupWindow.vue'
 
 export default {
@@ -77,7 +77,7 @@ export default {
   props: { component: Object },
   components: { 
     PopupWindow, 
-    ListIcon, UserIcon, AtSignIcon, InfoIcon, DiscIcon, CheckIcon, XIcon
+    ListIcon, UserIcon, AtSignIcon, InfoIcon, DiscIcon, CheckIcon, XIcon, HomeIcon
   },
 }
 </script>

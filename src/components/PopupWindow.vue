@@ -13,7 +13,7 @@
           <li 
             v-for="(item, index) in action" 
             :key="index"
-            @click="Action(item)" 
+            @click="Action()" 
             class="popup__li"
           >
             <p v-if="item.objectName == true">
@@ -30,7 +30,6 @@
               </span>
               {{ item.title }} 
             </p>
-
           </li>
         </ul>
       </div>
@@ -51,11 +50,11 @@ export default {
   },
   props: { 
     action: Array, 
-    target: Object 
+    target: Object
   },
   methods: {
-    Action() {
-      this.isOpen = !isOpen
+    Action(target) {
+      this.isOpen = false;
     }
   }
 }
@@ -84,7 +83,6 @@ export default {
   }
   &-ul:last-child {
     border-radius: 10px 10px 0 0;
-    color: red;
   }
   &__li {
     padding: 15px 20px;

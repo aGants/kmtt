@@ -16,8 +16,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import ButtonComponent from './PageComponents/ButtonComponent.vue'
-import TableComponent from './PageComponents/TableComponent.vue'
+import ButtonComponent from '../components/PageComponents/ButtonComponent.vue'
+import TableComponent from '../components/PageComponents/TableComponent.vue'
 
 export default{
   name: 'PageBlock',
@@ -34,15 +34,15 @@ export default{
   },
   props: {data: Array },
   created() {
-    this.section = this.data.filter((x) => x.id == this.id)[0];
-    this.content = this.section.pages.filter((i) => i.id == this.page)[0];
+    this.section = this.data.find((x) => x.id == this.id) || '';
+    this.content = this.section.pages.find((i) => i.id == this.page) || '';
     },
   watch: {
     $route(toRoute) {
       this.id = toRoute.params['id']
       this.page = toRoute.params['page']
-      this.section = this.data.filter((x) => x.id == this.id)[0];
-      this.content = this.section.pages.filter((i) => i.id == this.page)[0];
+      this.section = this.data.find((x) => x.id == this.id) || '';
+      this.content = this.section.pages.find((i) => i.id == this.page) || '';
     }
   }
 }

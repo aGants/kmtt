@@ -8,7 +8,7 @@
         "components": [
           {
             "type": "ButtonComponent",
-            "id": "123",
+            "id": "11",
             "name": "Кнопка публикации",
             "url": "https://dtf.ru/"
           }
@@ -21,7 +21,6 @@
       }
     ]
   },
-
   {
     "title": "",
     "id": "subscribe",
@@ -32,13 +31,13 @@
         "components": [
           {
             "type": "ButtonComponent",
-            "id": "124",
+            "id": "22",
             "name": "Кнопка подписаться",
             "url": "https://vc.ru/"
           },
           {
             "type": "ButtonComponent",
-            "id": "125",
+            "id": "33",
             "name": "Кнопка отписаться",
             "url": "https://vc.ru/"
           }
@@ -54,17 +53,105 @@
       {
         "id": "cities",
         "name": "Доступные города",
-        "components": []
+        "components": [
+          {
+            "type": "TableComponent",
+            "id": "44",
+            "name": "Таблица публикации",
+            "keys": [
+              { "icon": "ListIcon", "title": "ID", "id": "id" },
+              { "icon": "HomeIcon", "title": "Город", "id": "city" },
+              { "icon": "DiscIcon", "title": "Действия", "id": "action" }
+            ],
+            "action": {
+              "name": "• • •",
+              "list": [
+                { "title": "Удалить", "objectName": true, "action": "" }, 
+                { "title": "Редактировать", "objectName": false, "action": "" }
+              ]
+            },
+            "data": [
+              {
+                "id": {
+                  "link": "#", 
+                  "name": "111"
+                },
+                "name": "Москва", 
+                "action": "action"
+              },
+              {
+                "id": {
+                  "link": "#", 
+                  "name": "222"
+                },
+                "name": "Санкт-Петербург", 
+                "action": "action"
+              }
+            ]
+          }
+        ]
       },
       {
         "id": "blockedUsers",
         "name": "Заблокированные пользователи",
-        "components": []
+        "components": [
+          {
+            "type": "TableComponent",
+            "id": "55",
+            "name": "Таблица публикации",
+            "keys": [
+              { "icon": "ListIcon", "title": "ID", "id": "id" },
+              { "icon": "UserIcon", "title": "Имя", "id": "name" },
+              { "icon": "AtSignIcon", "title": "Email", "id": "email" },
+              { "icon": "DiscIcon", "title": "Действия", "id": "action" }
+            ],
+            "action": {
+              "name": "• • •",
+              "list": [
+                { "title": "Удалить", "objectName": true, "action": "" }, 
+                { "title": "Разбанить", "objectName": true, "action": "" }
+              ]
+            },
+            "data": [
+              {
+                "id": {
+                  "link": "#", 
+                  "name": "68223"
+                },
+                "name": "Mike Black", 
+                "email": "mikeblack@gmail.com",
+                "action": "action"
+              },
+              {
+                "id": {
+                  "link": "#",
+                  "name": "35682"
+                }, 
+                "name": "Maria Kenny", 
+                "email": "mariakenny.block@gmail.com",
+                "action": "action"
+              }
+            ]
+          },
+          {
+            "type": "ButtonComponent",
+            "id": "99",
+            "name": "Разбанить всех",
+            "url": "#"
+          }
+        ]
       },
       {
         "id": "blackList",
         "name": "Чёрный список ссылок",
-        "components": []
+        "components": [
+          {
+            "type": "ButtonComponent",
+            "id": "99",
+            "name": "Кнопка чёрного списка",
+            "url": "#"
+          }
+        ]
       },
       {
         "id": "userSettings",
@@ -72,7 +159,7 @@
         "components": [
           {
             "type": "TableComponent",
-            "id": "12",
+            "id": "55",
             "name": "Таблица публикации",
             "keys": [
               { "icon": "ListIcon", "title": "ID", "id": "id" },
@@ -139,7 +226,7 @@
           },
           {
             "type": "ButtonComponent",
-            "id": "123",
+            "id": "66",
             "name": "Кнопка публикации",
             "url": "https://dtf.ru/"
           }
