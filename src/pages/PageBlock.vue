@@ -36,6 +36,9 @@ export default{
   mounted() {
     this.section = (this.data !== undefined) ? (this.data.find((x) => x.id == this.id)) : { "title": "" };
     this.content = (this.section !== undefined) ? (this.section.pages.find((i) => i.id == this.page)) : { "name": "" };
+    if (this.content === undefined) {
+      this.$router.push('/404')
+    }
   },
   watch: {
     $route(toRoute) {
