@@ -1,9 +1,10 @@
 <template>
   <div class="aside">
-      <logo-settings
+      <logo-settings 
+        :setting="setting"
       />
       <nav-block
-        :menu="menu" 
+        :menu="menu"
       />
     </div>
 </template>
@@ -18,7 +19,8 @@ export default {
       LogoSettings, NavBlock,
     },
     props: {
-      menu: Array
+      menu: Array,
+      setting: Array
     }
 }
 </script>

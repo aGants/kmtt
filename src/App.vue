@@ -1,27 +1,36 @@
 <template>
   <div id="app" class="app">
-    <aside-block :menu="data" />
-    <router-view :data="data" />
+    <aside-block :menu="Config" :setting="Setting" />
+    <router-view :data="Config" />
   </div>
 </template>
 
 <script>
 import AsideBlock from './components/AdminPanel/AsideBlock.vue'
 const feather = require('feather-icons')
+import { mapActions, mapGetters } from 'vuex'
 
   export default {
     name: 'App',
-    data() {
-      return {
-        data: null
-      }
-    },
     components: {
       AsideBlock
     },
-    created() {
-      this.data = this.$store.getters.getData;
+    computed: {
+      ...mapGetters([
+        'Config',
+        'Setting'
+        ])
     },
+    methods: {
+      ...mapActions([
+        'getConfig',
+        'getSetting'
+      ])
+    },
+    created() {
+      this.getConfig()
+      this.getSetting
+    }
   }
 </script>
 

@@ -28,21 +28,21 @@ export default{
     return {
       id: this.$route.params['id'],
       page: this.$route.params['page'],
-      section: { "title": "Заголовок" },
-      content: { "name": "Заголовок" },
+      section: { "title": "" },
+      content: { "name": "" },
     }
   },
   props: {data: Array },
-  created() {
-    this.section = this.data.find((x) => x.id == this.id) || '';
-    this.content = this.section.pages.find((i) => i.id == this.page) || '';
-    },
+  mounted() {
+    this.section = (this.data !== undefined) ? (this.data.find((x) => x.id == this.id)) : { "title": "" };
+    this.content = (this.section !== undefined) ? (this.section.pages.find((i) => i.id == this.page)) : { "name": "" };
+  },
   watch: {
     $route(toRoute) {
       this.id = toRoute.params['id']
       this.page = toRoute.params['page']
-      this.section = this.data.find((x) => x.id == this.id) || '';
-      this.content = this.section.pages.find((i) => i.id == this.page) || '';
+      this.section = (this.data !== undefined) ? (this.data.find((x) => x.id == this.id)) : { "title": "" };
+      this.content = (this.section !== undefined) ? (this.section.pages.find((i) => i.id == this.page)) : { "name": "" };
     }
   }
 }

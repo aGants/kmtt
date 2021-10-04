@@ -1,19 +1,44 @@
 import Vue from 'vue';
-import Vuex from 'vuex';
-import data from '../config/data.json'
+import Vuex from 'vuex'
+import config from '../config/config.json'
 import setting from '../config/setting.json'
+// import axios from 'axios';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    data: data,
+    config: [] as Array<any>,
     setting: setting
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+    setConfig: (state, config: Array<any>) => {
+      state.config = config;
+    },
+    setSettind: (state, setting: Array<any>) => {
+      state.setting = setting;
+    }
+  },
+  actions: {
+    async getConfig({ commit } : any) {
+    //   return axios(('URL'), {
+    //     method: "GET"
+    //   })
+    //     .then((config) => {
+    //       commit('setConfig', config);
+    //       return config
+    //     })
+    // }
+    commit('setConfig', config);
+    return config
+    },
+    async getSetting({ commit } : any) {
+      commit('setSetting', setting);
+    return config
+    }
+  },
   getters: {
-    getData: state => state.data,
-    getSetting: state => state.setting,
+    Config: state => state.config,
+    Setting: state => state.setting,
   }
 })

@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts">
-import  Vue from 'vue'
+import Vue, {PropType} from 'vue'
 import { ChevronDownIcon, SettingsIcon, MenuIcon, AlertTriangleIcon} from 'vue-feather-icons'
 import PopupWindow from '../PopupWindow.vue'
 import Setting from '../../interfaces/Setting'
@@ -32,14 +32,11 @@ export default Vue.extend({
   name: 'LogoSettings',
   components: { ChevronDownIcon, SettingsIcon, MenuIcon, AlertTriangleIcon,
   PopupWindow },
-  data() {
-    return {
-      setting: [] as Array<Setting>
+  props: {
+    setting: {
+      type: Array as PropType<Setting[]>
     }
-  },
-  created() {
-      this.setting = this.$store.getters.getSetting;
-  },
+  }
 })
 </script>
 
