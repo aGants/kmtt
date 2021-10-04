@@ -8,6 +8,7 @@
         :key="component.id"
         :is="component.type"
         :component="component"
+        class="component"
         >
       </component>
     </section>
@@ -66,5 +67,7 @@ export default{
     color: $titlecolor;
   }
 }
-
+.component {
+  margin-top: 45px;
+}
 </style>

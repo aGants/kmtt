@@ -1,4 +1,20 @@
 <template>
+<div>
+  <div class="component-header">
+    <p class="component-header__title">{{ component.name }}</p>
+      <div
+        v-if="component.search"
+        class="component-header-input"
+      >
+        <SearchIcon size="1x" class="component-header-input__icon"/>
+        <input 
+          type="text" 
+          placeholder="Поиск" 
+          v-model="search"
+          class="component-header-input__text"
+        />
+      </div>
+  </div>
   <table class="table">
     <thead>
       <tr>
@@ -24,7 +40,7 @@
     </thead>
     <tbody>
       <tr 
-        v-for="(value, index) in component.data"
+        v-for="(value, index) in filteredTable"
         :key="index"
         class="table-tr"
       >
@@ -66,19 +82,35 @@
       </tr>
     </tbody>
   </table>
+</div>
 </template>
 
 <script>
-import { ListIcon, UserIcon, AtSignIcon, InfoIcon, DiscIcon, CheckIcon, XIcon, HomeIcon } from 'vue-feather-icons'
+import { ListIcon, UserIcon, AtSignIcon, InfoIcon, DiscIcon, CheckIcon, XIcon, HomeIcon, SearchIcon } from 'vue-feather-icons'
 import PopupWindow from '../PopupWindow.vue'
 
 export default {
   name: 'TableComponent',
+  data() {
+    return {
+      search: ''
+    }
+  },
   props: { component: Object },
   components: { 
     PopupWindow, 
-    ListIcon, UserIcon, AtSignIcon, InfoIcon, DiscIcon, CheckIcon, XIcon, HomeIcon
+    ListIcon, UserIcon, AtSignIcon, InfoIcon, DiscIcon, CheckIcon, XIcon, HomeIcon, SearchIcon
   },
+  computed: {
+    filteredTable: function () {
+      if (this.component.search) {
+        let key = this.component.searchKey
+        return this.component.data.filter(search => {
+          return search[key].toLowerCase().match(this.search.toLowerCase())
+      })
+      } else return this.component.data
+    }
+  }
 }
 </script>
 
@@ -116,6 +148,44 @@ export default {
       &:hover {
         color: $linkhover;
         border-color: $linkhover;
+      }
+    }
+  }
+
+}
+.component-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__title {
+    font-weight: 500;
+  }
+  &-input {
+    width: 260px;
+    position: relative;
+    display: block;
+    padding: 5px;
+    background: $bgcolor;
+    color: $subcolor;
+    border: 1px solid $tablecolor;
+    border-radius: 20px;
+    &__icon {
+      position: absolute;
+      top: 7px;
+      left: 10px;
+    }
+    &__text {
+      padding-left: 30px;
+      font: 400 18px $font;
+      background: $bgcolor;
+      border: none;
+      &:focus, &:active {
+        border: none;
+        outline: none;
+        color: $subcolor;
+      }
+      &::placeholder {
+        color: $subcolor;
       }
     }
   }

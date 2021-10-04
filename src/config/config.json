@@ -57,7 +57,6 @@
           {
             "type": "TableComponent",
             "id": "44",
-            "name": "Таблица публикации",
             "keys": [
               { "icon": "ListIcon", "title": "ID", "id": "id" },
               { "icon": "HomeIcon", "title": "Город", "id": "city" },
@@ -98,7 +97,6 @@
           {
             "type": "TableComponent",
             "id": "55",
-            "name": "Таблица публикации",
             "keys": [
               { "icon": "ListIcon", "title": "ID", "id": "id" },
               { "icon": "UserIcon", "title": "Имя", "id": "name" },
@@ -160,7 +158,9 @@
           {
             "type": "TableComponent",
             "id": "55",
-            "name": "Таблица публикации",
+            "name": "Список Пользователей",
+            "search": true,
+            "searchKey": "name",
             "keys": [
               { "icon": "ListIcon", "title": "ID", "id": "id" },
               { "icon": "UserIcon", "title": "Имя", "id": "name" },

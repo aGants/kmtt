@@ -15,7 +15,7 @@ export default new Vuex.Store({
     setConfig: (state, config: Array<any>) => {
       state.config = config;
     },
-    setSettind: (state, setting: Array<any>) => {
+    setSetting: (state, setting: Array<any>) => {
       state.setting = setting;
     }
   },
