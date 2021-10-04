@@ -47,10 +47,10 @@ $paddingleft: 25px;
 .nav {
   padding-top: 30px;
   &-ul {
-    font: 600 17px $font;
-    margin-bottom: 25px;
+    font: 600 18px $font;
+    margin-bottom: 29px;
     &__title {
-      margin-bottom: 10px;
+      margin-bottom: 5px;
       padding-left: $paddingleft;
       color: $subcolor;
       letter-spacing: 1px;

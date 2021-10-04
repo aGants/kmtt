@@ -1,21 +1,23 @@
 <template>
   <div class="logo">
-    <div class="logo__img">
-      <span>KMTT</span>
+    <div class="logo-info">
+      <div class="logo-info__img">
+        <span>KMTT</span>
+      </div>
+      <router-link 
+        tag="a" 
+        class="logo-info__title" 
+        to="/"
+      >
+        KMTT admin
+      </router-link>
     </div>
-    <router-link 
-      tag="a" 
-      class="logo__title" 
-      to="/"
-    >
-      KMTT admin
-    </router-link>
     <div class="logo__icon">
       <span class="logo__icon-down">
         <popup-window 
           :action="setting"
         >
-          <ChevronDownIcon size="2x"/>
+          <ChevronDownIcon size="1.8x"/>
         </popup-window>
       </span>
     </div>
@@ -45,32 +47,35 @@ export default Vue.extend({
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 20px;
+  padding-bottom: 15px;
   padding-right: 10px;
   border-bottom: 2px solid $bordercolor;
-  &__img {
-    margin-left: 28px;
-    font: bold 8px $font;
-    color: $maincolor;
-    padding: 12px 4px;
-    background: #000;
-    border-radius: 6px;
-    letter-spacing: 1px;
-  }
-  &__title {
-    margin: 0 15px;
-    font: bold 19px $font;
-    color: $maincolor;
-    text-decoration: none;
-    &:hover {
-      color: $textcolor;
+  &-info {
+    display: flex;
+    align-items: center;
+    &__img {
+      margin-left: 28px;
+      font: bold 8px $font;
+      color: $maincolor;
+      padding: 12px 4px;
+      background: #000;
+      border-radius: 6px;
+      letter-spacing: 1px;
+    }
+    &__title {
+      margin: 0 15px;
+      font: bold 19px $font;
+      color: $maincolor;
+      text-decoration: none;
+      &:hover {
+        color: $textcolor;
+      }
     }
   }
   &__icon {
     color: $subcolor;
-    flex-grow: 2;
     text-align: right;
-    margin-right: 0px;
+    margin-top: 6px;
     &-down {
       position: relative;
       cursor: pointer;

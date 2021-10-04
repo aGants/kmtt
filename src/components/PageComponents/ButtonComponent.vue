@@ -15,13 +15,13 @@ export default {
 .button {
   display: inline-block;
   margin: 10px 5px 10px 0;
-  padding: 10px 20px;
-  font: 13px $font;
+  padding: 15px 30px;
+  font: 400 18px $font;
   color: #fff;
   text-decoration: none;
   background: $linkcolor;
   border: none;
-  border-radius: 10px;
+  border-radius: 15px;
   box-shadow: 0 4px 10px rgba(54, 128, 236, .3);
   cursor: pointer;
   &:hover {

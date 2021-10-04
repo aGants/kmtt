@@ -115,50 +115,12 @@ export default {
 </script>
 
 <style lang="scss">
-.table { 
-  width: 100%;
-  margin: 10px 0px;
-  border-collapse: collapse;
-  &-th {
-    padding: 15px 10px;
-    color: $subcolor;
-    text-align: left;
-    border: 1px solid $tablecolor;
-    white-space: nowrap;
-    &__icon {
-      margin: 5px;
-    }
-    &__title {
-      font-size: 18px;
-      font-weight: 400;
-    }
-  }
-  &-td {
-    position: relative;
-    padding: 10px;
-    border: 1px solid $tablecolor;
-    line-height: 19px;
-    &__icon {
-      white-space: nowrap;
-    }
-    &__link {
-      color: $linkcolor;
-      text-decoration: none;
-      border-bottom: 1px dashed $linkcolor;
-      &:hover {
-        color: $linkhover;
-        border-color: $linkhover;
-      }
-    }
-  }
-
-}
 .component-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   &__title {
-    font-weight: 500;
+    font: 500 20px $font;
   }
   &-input {
     width: 260px;
@@ -189,5 +151,53 @@ export default {
       }
     }
   }
+}
+
+.table { 
+  width: 100%;
+  margin: 5px 0px;
+  border-collapse: collapse;
+  &-th {
+    padding: 14px 10px;
+    color: $subcolor;
+    text-align: left;
+    border: 1px solid $tablecolor;
+    white-space: nowrap;
+    &:first-child, &:last-child {
+      border-left: none;
+      border-right: none;
+    }
+    &__icon {
+      margin: 0 5px;
+    }
+    &__title {
+      margin-top: 5px;
+      font-size: 18px;
+      font-weight: 400;
+    }
+  }
+  &-td {
+    position: relative;
+    padding: 12px;
+    border: 1px solid $tablecolor;
+    line-height: 19px;
+    &:first-child, &:last-child {
+      border-left: none;
+      border-right: none;
+    }
+    &__icon {
+      white-space: nowrap;
+    }
+    &__link {
+      color: $linkcolor;
+      text-decoration: none;
+      border-bottom: 1px dashed $linkcolor;
+      &:hover {
+        color: $linkhover;
+        border-color: $linkhover;
+      }
+    }
+  }
+
 }
 </style>

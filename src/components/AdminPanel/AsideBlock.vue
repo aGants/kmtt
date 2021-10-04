@@ -27,7 +27,7 @@ export default {
 
 <style lang="scss">
   .aside {
-    margin: 20px 0px;
+    margin: 16px 0px;
     border-right: 2px solid $bordercolor;
   }
 </style>

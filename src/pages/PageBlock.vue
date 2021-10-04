@@ -63,11 +63,12 @@ export default{
   }
 
   &__subtitle {
-    font: 500 28px $font;
+    font: 500 29px $font;
     color: $titlecolor;
+    margin-bottom: 40px;
   }
 }
 .component {
-  margin-top: 45px;
+  margin-bottom: 20px;
 }
 </style>
