@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="app">
-    <aside-block />
-    <router-view />
+    <aside-block :menu="data" />
+    <router-view :data="data" />
   </div>
 </template>
 
@@ -11,12 +11,16 @@ const feather = require('feather-icons')
 
   export default {
     name: 'App',
+    data() {
+      return {
+        data: null
+      }
+    },
     components: {
       AsideBlock
     },
-    data() {
-      return {
-      }
+    created() {
+      this.data = this.$store.getters.getData;
     },
   }
 </script>

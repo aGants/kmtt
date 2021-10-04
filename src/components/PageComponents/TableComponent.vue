@@ -53,7 +53,7 @@
             <popup-window 
               v-else-if="name === 'action'" 
               :action="component.action.list" 
-              :targetName="value.name"
+              :target="value"
               > 
               {{ component.action.name }}
             </popup-window>

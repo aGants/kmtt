@@ -2,7 +2,7 @@
   <div class="aside">
       <logo-settings
       />
-      <menu-block
+      <nav-block
         :menu="menu" 
       />
     </div>
@@ -10,19 +10,16 @@
 
 <script lang="ts">
 import LogoSettings from './LogoSettings.vue'
-import MenuBlock from './NavBlock.vue'
-import menu from '../../config/menu.json'
+import NavBlock from './NavBlock.vue'
 
 export default {
   name: 'AsideBlock',
     components: {
-      LogoSettings, MenuBlock,
+      LogoSettings, NavBlock,
     },
-    data() {
-      return {
-        menu: menu
-      }
-    },
+    props: {
+      menu: Array
+    }
 }
 </script>
 

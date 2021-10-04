@@ -13,12 +13,11 @@
           <li 
             v-for="(item, index) in action" 
             :key="index"
-            @click="isOpen = !isOpen" 
+            @click="Action(item)" 
             class="popup__li"
           >
-
             <p v-if="item.objectName == true">
-              {{ item.title }} {{ targetName }}
+              {{ item.title }} {{ target.name }}
             </p> 
 
             <p v-else>
@@ -52,8 +51,13 @@ export default {
   },
   props: { 
     action: Array, 
-    targetName: String 
+    target: Object 
   },
+  methods: {
+    Action() {
+      this.isOpen = !isOpen
+    }
+  }
 }
 </script>
 

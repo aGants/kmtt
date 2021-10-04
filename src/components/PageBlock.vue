@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import menu from '../config/menu.json'
+import { mapGetters } from 'vuex'
 import ButtonComponent from './PageComponents/ButtonComponent.vue'
 import TableComponent from './PageComponents/TableComponent.vue'
 
@@ -28,20 +28,20 @@ export default{
     return {
       id: this.$route.params['id'],
       page: this.$route.params['page'],
-      menu: menu,
-      section: null,
-      content: null,
+      section: { "title": "Заголовок" },
+      content: { "name": "Заголовок" },
     }
   },
+  props: {data: Array },
   created() {
-    this.section = this.menu.filter((x) => x.id == this.id)[0];
+    this.section = this.data.filter((x) => x.id == this.id)[0];
     this.content = this.section.pages.filter((i) => i.id == this.page)[0];
-  },
+    },
   watch: {
     $route(toRoute) {
       this.id = toRoute.params['id']
       this.page = toRoute.params['page']
-      this.section = this.menu.filter((x) => x.id == this.id)[0];
+      this.section = this.data.filter((x) => x.id == this.id)[0];
       this.content = this.section.pages.filter((i) => i.id == this.page)[0];
     }
   }
