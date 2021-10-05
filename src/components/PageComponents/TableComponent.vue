@@ -6,7 +6,11 @@
         v-if="component.search"
         class="component-header-input"
       >
-        <SearchIcon size="1x" class="component-header-input__icon"/>
+        <icon-component 
+          :IconName="'SearchIcon'"
+          :IconSize="'1x'" 
+          class="component-header-input__icon"
+        />
         <input 
           type="text" 
           placeholder="Поиск" 
@@ -25,10 +29,10 @@
         >
 
           <span class="table-th__icon">
-            <component
-              :is="key.icon"
-              size="1x"
-            ></component>
+            <icon-component
+              :IconName="key.icon"
+              :IconSize="'1x'"
+            ></icon-component>
           </span>
           
           <span class="table-th__title">
@@ -54,16 +58,16 @@
               :href="name.link"
               class="table-td__link"
             >
-                {{ name.name }}
+              <span class="table-td__text"> {{ name.name }}  </span>
             </a>
 
             <span v-else-if="name.icon" class="table-td__icon">
-              <component
-                  :is="name.icon"
-                  size="1x"
-                  :color="name.color"
-              ></component>
-              {{ name.text }}
+              <icon-component 
+                :IconName="name.icon"
+                :IconSize="'1x'"
+                :color="name.color"
+              />
+              <span class="table-td__text"> {{ name.text }} </span>
             </span>
 
             <popup-window 
@@ -86,8 +90,8 @@
 </template>
 
 <script>
-import { ListIcon, UserIcon, AtSignIcon, InfoIcon, DiscIcon, CheckIcon, XIcon, HomeIcon, SearchIcon } from 'vue-feather-icons'
 import PopupWindow from '../PopupWindow.vue'
+import IconComponent from '../IconComponent'
 
 export default {
   name: 'TableComponent',
@@ -98,8 +102,7 @@ export default {
   },
   props: { component: Object },
   components: { 
-    PopupWindow, 
-    ListIcon, UserIcon, AtSignIcon, InfoIcon, DiscIcon, CheckIcon, XIcon, HomeIcon, SearchIcon
+    PopupWindow, IconComponent
   },
   computed: {
     filteredTable: function () {
@@ -174,6 +177,7 @@ export default {
       margin-top: 5px;
       font-size: 18px;
       font-weight: 400;
+      vertical-align: middle;
     }
   }
   &-td {
@@ -196,6 +200,9 @@ export default {
         color: $linkhover;
         border-color: $linkhover;
       }
+    }
+    &__text {
+      vertical-align: middle;
     }
   }
 

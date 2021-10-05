@@ -14,21 +14,20 @@
             v-for="(item, index) in action" 
             :key="index"
             @click="Action()" 
-            class="popup__li"
+            class="popup-li"
           >
-            <p v-if="item.objectName == true">
+            <p v-if="item.objectName == true" class="popup-li__text">
               {{ item.title }} {{ target.name }}
             </p> 
 
             <p v-else>
-              <span>
-                <component
-                  v-if="item.icon"
-                  :is="item.icon"
-                  size="1x"
-                ></component>
-              </span>
-              {{ item.title }} 
+              <icon-component 
+                v-if="item.icon"
+                :IconName="item.icon"
+                :IconSize="'1.4x'"
+                class="popup-li__icon"
+              />
+              <span class="popup-li__text"> {{ item.title }} </span> 
             </p>
           </li>
         </ul>
@@ -38,11 +37,11 @@
 </template>
 
 <script>
-import { SettingsIcon, MenuIcon, AlertTriangleIcon } from 'vue-feather-icons'
+import IconComponent from './IconComponent.vue'
 
 export default {
   name: "PopupWindow",
-  components: { SettingsIcon, MenuIcon, AlertTriangleIcon },
+  components: { IconComponent },
   data() {
     return {
       isOpen: false
@@ -74,6 +73,7 @@ export default {
   position: absolute;
   right: 10%;
   z-index: 99;
+  min-width: 250px;
   border-radius: 10px;
   border: 1px solid $tablecolor;
   text-align: left;
@@ -84,7 +84,7 @@ export default {
   &-ul:last-child {
     border-radius: 10px 10px 0 0;
   }
-  &__li {
+  &-li {
     padding: 15px 20px;
     font-weight: 500;
     color: $textcolor;
@@ -99,6 +99,13 @@ export default {
     }
     &:hover {
       background: $bghover;
+    }
+    &__icon {
+      vertical-align: middle;
+      padding-right: 15px;
+    }
+    &__text {
+      vertical-align: middle;
     }
   }
 }

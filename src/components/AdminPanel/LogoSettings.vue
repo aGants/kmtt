@@ -17,7 +17,7 @@
         <popup-window 
           :action="setting"
         >
-          <ChevronDownIcon size="1.8x"/>
+          <icon-component :IconName="'ChevronDownIcon'" :IconSize="'1.8x'"/>
         </popup-window>
       </span>
     </div>
@@ -26,14 +26,13 @@
 
 <script lang="ts">
 import Vue, {PropType} from 'vue'
-import { ChevronDownIcon, SettingsIcon, MenuIcon, AlertTriangleIcon} from 'vue-feather-icons'
 import PopupWindow from '../PopupWindow.vue'
 import Setting from '../../interfaces/Setting'
+import IconComponent from '../IconComponent.vue'
 
 export default Vue.extend({
   name: 'LogoSettings',
-  components: { ChevronDownIcon, SettingsIcon, MenuIcon, AlertTriangleIcon,
-  PopupWindow },
+  components: { PopupWindow, IconComponent },
   props: {
     setting: {
       type: Array as PropType<Setting[]>

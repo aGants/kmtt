@@ -58,9 +58,4 @@ import { mapActions, mapGetters } from 'vuex'
     height: 100%;
   }
 
-  .feather {
-   vertical-align: middle;
-   margin-right: 2px;
-  }
-
 </style>

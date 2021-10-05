@@ -1,13 +1,13 @@
 <template>
   <div class="aside">
-    <di>
+    <div>
       <logo-settings 
         :setting="setting"
       />
       <nav-block
         :menu="menu"
       />
-    </di>
+    </div>
       <a class="aside-library" href="#">
         <LayersIcon size="1.5x" /> 
         <span class="aside-library__text">Библиотека компонентов</span>
