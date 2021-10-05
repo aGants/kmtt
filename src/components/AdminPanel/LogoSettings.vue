@@ -54,7 +54,7 @@ export default Vue.extend({
     display: flex;
     align-items: center;
     &__img {
-      margin-left: 28px;
+      margin-left: $navleft;
       font: bold 8px $font;
       color: $maincolor;
       padding: 12px 4px;

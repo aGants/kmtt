@@ -103,7 +103,7 @@ export default {
   },
   computed: {
     filteredTable: function () {
-      if (this.component.search) {
+      if (this.component.searchKey) {
         let key = this.component.searchKey
         return this.component.data.filter(search => {
           return search[key].toLowerCase().match(this.search.toLowerCase())

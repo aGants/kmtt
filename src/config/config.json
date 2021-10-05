@@ -97,6 +97,8 @@
           {
             "type": "TableComponent",
             "id": "55",
+            "search": "true",
+            "searchKey": "name",
             "keys": [
               { "icon": "ListIcon", "title": "ID", "id": "id" },
               { "icon": "UserIcon", "title": "Имя", "id": "name" },
@@ -153,7 +155,7 @@
       },
       {
         "id": "userSettings",
-        "name": "Управление пользователем",
+        "name": "Управление пользователями",
         "components": [
           {
             "type": "TableComponent",
@@ -195,21 +197,6 @@
               {
                 "id": {
                   "link": "#",
-                  "name": "67832"
-                }, 
-                "name": "Marta Stone", 
-                "email": "martastone.greatheart@gmail.com",
-                "status": 
-                  { 
-                    "icon": "CheckIcon",
-                    "color": "green",
-                    "text": "Активен"
-                  },
-                "action": "action"
-              },
-              {
-                "id": {
-                  "link": "#",
                   "name": "78943"
                 }, 
                 "name": "John White", 
@@ -227,7 +214,7 @@
           {
             "type": "ButtonComponent",
             "id": "66",
-            "name": "Кнопка публикации",
+            "name": "Добавить пользователя",
             "url": "https://dtf.ru/"
           }
         ]

@@ -41,9 +41,14 @@ import { mapActions, mapGetters } from 'vuex'
   }
 
   html {
+    height: 100%;
     font: 18px $font;
     color: $textcolor;
     background: $bgcolor;
+  }
+
+  body {
+    height: 100%;
   }
 
   .app {
@@ -53,8 +58,9 @@ import { mapActions, mapGetters } from 'vuex'
     height: 100%;
   }
 
-  .icon {
-    color: red;
+  .feather {
+   vertical-align: middle;
+   margin-right: 2px;
   }
 
 </style>

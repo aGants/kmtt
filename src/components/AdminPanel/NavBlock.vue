@@ -42,8 +42,6 @@ export default Vue.extend({
     RouterLink
 
 <style lang="scss">
-$paddingleft: 25px;
-
 .nav {
   padding-top: 30px;
   &-ul {
@@ -51,7 +49,7 @@ $paddingleft: 25px;
     margin-bottom: 29px;
     &__title {
       margin-bottom: 5px;
-      padding-left: $paddingleft;
+      padding-left: $navleft;
       color: $subcolor;
       letter-spacing: 1px;
       text-transform: uppercase;
@@ -60,7 +58,7 @@ $paddingleft: 25px;
       width: 360px;
       margin-top: 0px;
       padding: 7px 0px;
-      padding-left: $paddingleft;
+      padding-left: $navleft;
       font: 400 20px $font;
       line-height: 30px;
       list-style-type: none;
