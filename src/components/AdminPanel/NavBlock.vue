@@ -25,17 +25,13 @@
 </template>
 
 <script lang="ts">
-import Vue, {PropType} from 'vue'
-import Section from '../../interfaces/Menu'
+import Vue, { PropType } from 'vue'
+import { SectionModel } from '../../interfaces/Menu'
 
 export default Vue.extend({
   props: {
-    menu: {
-      required: true,
-      type: Array as PropType<Section[]>
-    }
-  },
-  components: { }
+    menu: Array as PropType<SectionModel[]>
+  }
 })
 
 </script>

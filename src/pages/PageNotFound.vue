@@ -4,12 +4,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "PageNotFound"
-}
-</script>
-
 <style lang="scss">
 .error {
   display: flex;

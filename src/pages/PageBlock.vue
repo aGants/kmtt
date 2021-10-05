@@ -15,28 +15,31 @@
   </main>
 </template>
 
-<script>
-import { mapGetters } from 'vuex'
+<script lang="ts">
+import Vue, { PropType }  from 'vue';
 import ButtonComponent from '../components/PageComponents/ButtonComponent.vue'
 import TableComponent from '../components/PageComponents/TableComponent.vue'
+import { SectionModel, PageModel } from '../interfaces/Menu'
 
-export default{
+export default Vue.extend({
   name: 'PageBlock',
   components: {
     ButtonComponent, TableComponent
   },
   data() {
     return {
-      id: this.$route.params['id'],
-      page: this.$route.params['page'],
-      section: { "title": "" },
-      content: { "name": "" },
+      id: this.$route.params['id'] as string,
+      page: this.$route.params['page'] as string,
+      section: {'title': ''} as SectionModel | undefined,
+      content: {'name': ''} as PageModel | undefined,
     }
   },
-  props: {data: Array },
+  props: {
+    data: Array as PropType<SectionModel[]> 
+  },
   mounted() {
-    this.section = (this.data !== undefined) ? (this.data.find((x) => x.id == this.id)) : { "title": "" };
-    this.content = (this.section !== undefined) ? (this.section.pages.find((i) => i.id == this.page)) : { "name": "" };
+    this.section = (this.data !== undefined) ? (this.data.find((x) => x.id == this.id)) : undefined;
+    this.content = (this.section !== undefined) ? (this.section.pages.find((i) => i.id == this.page)) : undefined;
     if (this.content === undefined) {
       this.$router.push('/404')
     }
@@ -45,11 +48,11 @@ export default{
     $route(toRoute) {
       this.id = toRoute.params['id']
       this.page = toRoute.params['page']
-      this.section = (this.data !== undefined) ? (this.data.find((x) => x.id == this.id)) : { "title": "" };
-      this.content = (this.section !== undefined) ? (this.section.pages.find((i) => i.id == this.page)) : { "name": "" };
+      this.section = (this.data !== undefined) ? (this.data.find((x) => x.id == this.id)) : undefined;
+      this.content = (this.section !== undefined) ? (this.section.pages.find((i) => i.id == this.page)) :undefined;
     }
   }
-}
+})
 </script>
 
 <style lang="scss">

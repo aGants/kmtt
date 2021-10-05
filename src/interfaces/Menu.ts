@@ -1,11 +1,15 @@
-export default interface Page {
+export interface PageModel {
   name: string;
   id: string;
   content?: object 
 }
 
-export default interface Section {
+export interface SectionModel {
   title: string,
   id: string,
-  pages: Page[],
+  pages: PageModel[],
+}
+export interface PopUpModel {
+  icon?: string,
+  title: string,
 }

@@ -5,26 +5,34 @@
   />
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import 
 { 
-  SettingsIcon, MenuIcon, AlertTriangleIcon, ChevronDownIcon,ListIcon,
-  UserIcon, AtSignIcon, InfoIcon, DiscIcon, CheckIcon, XIcon, HomeIcon, SearchIcon 
+  SettingsIcon, MenuIcon, AlertTriangleIcon, ChevronDownIcon,ListIcon, 
+  UserIcon, AtSignIcon, InfoIcon, DiscIcon, CheckIcon, XIcon, HomeIcon, 
+  SearchIcon, LayersIcon
 } from 'vue-feather-icons'
 
-export default {
+export default Vue.extend({
   name: 'Icon',
   components: 
   { 
     SettingsIcon, MenuIcon, AlertTriangleIcon, ChevronDownIcon, ListIcon, 
     UserIcon, AtSignIcon, InfoIcon, DiscIcon, CheckIcon, XIcon, HomeIcon, 
-    SearchIcon
+    SearchIcon, LayersIcon
   },
   props: {
-    IconName: String,
-    IconSize : String
+    IconName: {
+      required: true,
+      type: String,
+    },
+    IconSize: {
+      required: true,
+      type: String,
+    },
   },
-}
+})
 </script>
 
 <style lang="scss">

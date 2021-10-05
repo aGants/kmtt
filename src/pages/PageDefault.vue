@@ -6,12 +6,3 @@
     </section>
   </main>
 </template>
-
-<script>
-export default {
-  name: 'PageDefault'
-}
-</script>
-
-<style>
-</style>

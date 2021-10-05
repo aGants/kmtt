@@ -9,28 +9,39 @@
       />
     </div>
       <a class="aside-library" href="#">
-        <LayersIcon size="1.5x" /> 
+        <icon-component 
+          :IconName="'LayersIcon'"
+          :IconSize="'1.5x'" 
+        /> 
         <span class="aside-library__text">Библиотека компонентов</span>
       </a>
     </div>
 </template>
 
 <script lang="ts">
-import { LayersIcon } from 'vue-feather-icons'
-
+import Vue, { PropType }  from 'vue';
+import IconComponent from '../IconComponent.vue'
 import LogoSettings from './LogoSettings.vue'
 import NavBlock from './NavBlock.vue'
+import { SectionModel } from '../../interfaces/Menu'
+import SettingModel from '../../interfaces/Setting'
 
-export default {
+export default Vue.extend({
   name: 'AsideBlock',
     components: {
-      LogoSettings, NavBlock, LayersIcon
+      IconComponent, LogoSettings, NavBlock
     },
     props: {
-      menu: Array,
-      setting: Array
+      menu: {
+        required: true,
+        type: Array as PropType<SectionModel[]>
+      },
+      setting: {
+        required: true,
+        type: Array as PropType<SettingModel[]>
+      }
     }
-}
+})
 </script>
 
 <style lang="scss">

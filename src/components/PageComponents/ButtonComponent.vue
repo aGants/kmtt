@@ -1,14 +1,27 @@
 <template>
-  <a class="button" :href="component.url" target="_blank">
+  <a class="button" @click="Action(component.url)" target="_blank">
     {{ component.name }}
   </a>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue, { PropType } from 'vue';
+import ButtonModel from "../../interfaces/Component"
+
+export default Vue.extend({
   name: 'ButtonComponent',
-  props: { component: Object }
-}
+  props: { 
+    component: {
+      required: true,
+      type: Object as PropType<ButtonModel>
+    }
+  },
+  methods: {
+    Action(url: string) {
+      this.$router.push(url)
+    }
+  }
+})
 </script>
 
 <style lang="scss">

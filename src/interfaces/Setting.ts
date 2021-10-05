@@ -1,4 +1,4 @@
-export default interface Setting {
+export default interface SettingModel {
   icon: string,
   title: string
 }

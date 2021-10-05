@@ -13,17 +13,16 @@
           <li 
             v-for="(item, index) in action" 
             :key="index"
-            @click="Action()" 
+            @click="Action(item.action)" 
             class="popup-li"
           >
             <p v-if="item.objectName == true" class="popup-li__text">
               {{ item.title }} {{ target.name }}
             </p> 
-
             <p v-else>
               <icon-component 
                 v-if="item.icon"
-                :IconName="item.icon"
+                IconName="item.icon"
                 :IconSize="'1.4x'"
                 class="popup-li__icon"
               />
@@ -36,27 +35,30 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue, { PropType } from 'vue';
 import IconComponent from './IconComponent.vue'
+import PopUpModel from '../interfaces/Component'
 
-export default {
+export default Vue.extend({
   name: "PopupWindow",
   components: { IconComponent },
   data() {
     return {
-      isOpen: false
+      isOpen: false as boolean
     }
   },
   props: { 
-    action: Array, 
+    action: Array as PropType<PopUpModel[]>, 
     target: Object
   },
-  methods: {
-    Action(target) {
+    methods: {
+      Action(target: any) {
+      console.log(target)
       this.isOpen = false;
+      }
     }
-  }
-}
+})
 </script>
 
 <style lang="scss">

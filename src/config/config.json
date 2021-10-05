@@ -10,7 +10,7 @@
             "type": "ButtonComponent",
             "id": "11",
             "name": "Кнопка публикации",
-            "url": "https://dtf.ru/"
+            "url": "/dataList/userSettings"
           }
         ]
       },
@@ -33,13 +33,13 @@
             "type": "ButtonComponent",
             "id": "22",
             "name": "Кнопка подписаться",
-            "url": "https://vc.ru/"
+            "url": "/dataList/cities"
           },
           {
             "type": "ButtonComponent",
             "id": "33",
             "name": "Кнопка отписаться",
-            "url": "https://vc.ru/"
+            "url": "/dataList/cities"
           }
         ]
       }
@@ -215,7 +215,7 @@
             "type": "ButtonComponent",
             "id": "66",
             "name": "Добавить пользователя",
-            "url": "https://dtf.ru/"
+            "url": "/dataList/blockedUsers"
           }
         ]
       }

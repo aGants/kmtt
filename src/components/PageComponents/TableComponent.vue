@@ -81,7 +81,6 @@
             <span v-else class="table-td__text">
               {{ name }}
             </span>
-            
         </td>
       </tr>
     </tbody>
@@ -89,32 +88,38 @@
 </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue, {PropType} from 'vue';
 import PopupWindow from '../PopupWindow.vue'
-import IconComponent from '../IconComponent'
+import TableModel from "../../interfaces/Component"
+import IconComponent from  '../IconComponent.vue'
 
-export default {
+export default Vue.extend({
   name: 'TableComponent',
   data() {
     return {
-      search: ''
+      search: '' as string
     }
   },
-  props: { component: Object },
+  props: { component: {
+    required: true,
+    type: Object as PropType<TableModel>
+    } },
   components: { 
     PopupWindow, IconComponent
   },
   computed: {
-    filteredTable: function () {
+    filteredTable(): Array<any> {
       if (this.component.searchKey) {
-        let key = this.component.searchKey
+        const key: string = this.component.searchKey 
         return this.component.data.filter(search => {
           return search[key].toLowerCase().match(this.search.toLowerCase())
-      })
-      } else return this.component.data
+        })
+      } 
+      return this.component.data
     }
   }
-}
+})
 </script>
 
 <style lang="scss">

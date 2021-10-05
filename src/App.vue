@@ -5,33 +5,33 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import AsideBlock from './components/AdminPanel/AsideBlock.vue'
-const feather = require('feather-icons')
 import { mapActions, mapGetters } from 'vuex'
 
-  export default {
-    name: 'App',
-    components: {
-      AsideBlock
-    },
-    computed: {
-      ...mapGetters([
-        'Config',
-        'Setting'
-        ])
-    },
-    methods: {
-      ...mapActions([
-        'getConfig',
-        'getSetting'
+export default Vue.extend({
+  name: 'App',
+  components: {
+    AsideBlock
+  },
+  computed: {
+    ...mapGetters([
+      'Config',
+      'Setting'
       ])
-    },
-    created() {
-      this.getConfig()
-      this.getSetting
-    }
+  },
+  methods: {
+    ...mapActions([
+      'getConfig',
+      'getSetting'
+    ])
+  },
+  created() {
+    this.getConfig()
+    this.getSetting
   }
+});
 </script>
 
 <style lang="scss">
