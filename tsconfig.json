@@ -6,7 +6,7 @@
       "DOM",
       "ESNext"
     ],
-    "outDir": "./public",
+    "outDir": "./dist",
     "rootDir": "./src",
     "strict": true,
     "noImplicitThis": true,
