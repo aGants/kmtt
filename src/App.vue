@@ -1,16 +1,17 @@
 <template>
   <div id="app" class="app">
-    <button class="app-burger"
-      @click="asideStatus()"
-      v-if="!desc"
-    >
+    <button class="app-burger" @click="asideStatus()" >
       <icon-component 
         :IconName="iconName" 
         :IconSize="'1.5x'"
       />
     </button>
     <transition name="slide">
-      <aside-block :menu="Config" :setting="Setting"  v-if="isAsideOpen"/>
+      <aside-block 
+        :menu="Config" 
+        :setting="Setting" 
+        :class="[isAsideOpen ? 'visible' : 'hidden']"
+      />
     </transition>
     <router-view :data="Config" />
   </div>
@@ -30,17 +31,12 @@ export default Vue.extend({
       * Статус бокового меню
       * @type {boolean}
       */
-      isAsideOpen: true as Boolean,
+      isAsideOpen: false as Boolean,
       /**
       * Имя иконки, открывающей меню
       * @type {string} 
       */
       iconName: 'MenuIcon' as String,
-      /**
-      * Тип устройства - компьютер
-      * @type {boolean}
-      */
-      desc: true as Boolean
     }
   },
   components: {
@@ -61,33 +57,21 @@ export default Vue.extend({
     * Изменение статуса меню и иконки
     */
     asideStatus() {
-      if (!this.desc) {
         this.isAsideOpen = !this.isAsideOpen;
         this.iconName = (this.isAsideOpen) ? 'XIcon' : 'MenuIcon';
-      }
     }
   },
   created() {
     this.getConfig()
     this.getSetting()
-    
-    /**
-    * Проверка зашёл ли пользователь с телефона
-    */
-    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-      this.desc = false
-      this.isAsideOpen = false
-    }
   },
     watch: {
       /**
       * Закрыть боковое меню при переходе на другую страницу
       */
       $route() {
-        if (!this.desc) {
-          this.isAsideOpen = false;
-          this.iconName = (this.isAsideOpen) ? 'XIcon' : 'MenuIcon';
-        }
+        this.isAsideOpen = false;
+        this.iconName = (this.isAsideOpen) ? 'XIcon' : 'MenuIcon';
       }
     }
 });
@@ -118,24 +102,30 @@ body {
   display: flex;
   height: 100%;
   &-burger {
-    all: unset;
-    display: block;
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 99;
+    display: none;
+    @media (max-width: $screen) {
+      all: unset;
+      display: block;
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 99;
+    }
   }
 }
 
-.slide-enter-active {
-  transition: all .4s ease-out;
+.hidden {
+  @media (max-width: $screen) {
+    transform: translateX(-100%);
+    transition: transform .4s ease-out;
+  }
 }
-.slide-leave-active {
-  transition: all .4s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-.slide-enter, .slide-leave-to {
-  transform: translateX(-100%);
-  opacity: 0;
+
+.visible {
+  @media (max-width: $screen) {
+    transform: translateX(0);
+    transition: transform .4s ease-out;
+  }
 }
 
 </style>

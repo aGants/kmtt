@@ -53,12 +53,6 @@ export default Vue.extend({
   padding-bottom: 15px;
   padding-right: 10px;
   border-bottom: 2px solid $bordercolor;
-  &__burger {
-    margin-left: $navleft;
-    @media (min-width: $screen) {
-      display: none;
-    }
-  }
   &-info {
     display: flex;
     align-items: center;

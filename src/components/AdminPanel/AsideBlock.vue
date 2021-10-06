@@ -79,7 +79,6 @@ export default Vue.extend({
     }
     @media (max-width: $screen) {
       position: fixed;
-      height: 100%;
       z-index: 90;
       width: 80%;
       overflow-y: scroll;
