@@ -89,13 +89,16 @@ export default Vue.extend({
 }
 .popup {
   position: absolute;
-  right: 10%;
-  z-index: 99;
+  right: 9%;
+  z-index: 80;
   min-width: 250px;
   border-radius: 10px;
   border: 1px solid $tablecolor;
   text-align: left;
   background: $bgcolor;
+  @media (max-width: $screen) {
+    min-width: 200px;
+  }
   &-inner {
     box-shadow: 0 15px 10px rgba(16, 17, 20, .3);
   }
@@ -109,6 +112,9 @@ export default Vue.extend({
     white-space: nowrap;
     list-style-type: none;
     cursor: pointer;
+    @media (max-width: $screen) {
+      padding: 10px 15px;
+    }
     &:last-child{
       border-radius: 0px 0px 10px 10px;
     }

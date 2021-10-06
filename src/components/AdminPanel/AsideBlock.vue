@@ -59,12 +59,16 @@ export default Vue.extend({
     justify-content: space-between;
     margin: 16px 0px;
     border-right: 2px solid $bordercolor;
+    background: $bgcolor;
     &-library { 
       display: block;
       padding-left: $navleft;
       font-size: 19px;
       color: $textcolor;
       text-decoration: none;
+      @media (max-width: $screen) {
+        font-size: 17px;
+      }
       &:hover {
         color: $titlecolor;
       }
@@ -73,5 +77,13 @@ export default Vue.extend({
         vertical-align: middle;
       }
     }
+    @media (max-width: $screen) {
+      position: fixed;
+      height: 100%;
+      z-index: 90;
+      width: 80%;
+      overflow-y: scroll;
+    }
   }
+
 </style>

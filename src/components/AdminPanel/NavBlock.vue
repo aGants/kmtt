@@ -45,7 +45,7 @@ export default Vue.extend({
 .nav {
   padding-top: 30px;
   &-ul {
-    font: 600 18px $font;
+    font-weight: 600;
     margin-bottom: 29px;
     &__title {
       margin-bottom: 5px;
@@ -55,7 +55,7 @@ export default Vue.extend({
       text-transform: uppercase;
     }
     &-li {
-      width: 360px;
+      min-width: 360px;
       margin-top: 0px;
       padding: 7px 0px;
       padding-left: $navleft;
@@ -63,6 +63,10 @@ export default Vue.extend({
       line-height: 30px;
       list-style-type: none;
       cursor: pointer;
+      @media (max-width: $screen) {
+        min-width: auto;
+        font-size: 16px;
+      }
       &:hover {
         color: #fff;
       }

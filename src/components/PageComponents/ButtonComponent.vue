@@ -37,7 +37,7 @@ export default Vue.extend({
   display: inline-block;
   margin: 10px 5px 10px 0;
   padding: 15px 30px;
-  font: 400 18px $font;
+  font-weight: 400;
   color: #fff;
   text-decoration: none;
   background: $linkcolor;
@@ -45,6 +45,9 @@ export default Vue.extend({
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(54, 128, 236, .3);
   cursor: pointer;
+  @media (max-width: $screen) {
+    padding: 10px 20px;
+  }
   &:hover {
     background: $linkhover;
   }

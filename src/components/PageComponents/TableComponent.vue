@@ -4,87 +4,89 @@
     <p class="component-header__title">{{ component.name }}</p>
       <div
         v-if="component.search"
-        class="component-header-input"
+        class="component-header-search"
       >
         <icon-component 
           :IconName="'SearchIcon'"
           :IconSize="'1x'" 
-          class="component-header-input__icon"
+          class="component-header-search__icon"
         />
         <input 
           type="text" 
           placeholder="Поиск" 
           v-model="search"
-          class="component-header-input__text"
+          class="component-header-search__input"
         />
       </div>
   </div>
-  <table class="table">
-    <thead>
-      <tr>
-        <th 
-          v-for="key in component.keys"
-          :key="key.id"
-          class="table-th"
-        >
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th
+            v-for="key in component.keys"
+            :key="key.id"
+            class="table-th"
+          >
 
-          <span class="table-th__icon">
-            <icon-component
-              :IconName="key.icon"
-              :IconSize="'1x'"
-            ></icon-component>
-          </span>
-          
-          <span class="table-th__title">
-            {{ key.title }}
-          </span>
-
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr 
-        v-for="(value, index) in filteredTable"
-        :key="index"
-        class="table-tr"
-      >
-        <td 
-          v-for="(name, index) in value"
-          :key="index"
-          class="table-td">
-
-            <a
-              v-if="name.name"
-              :href="name.link"
-              class="table-td__link"
-            >
-              <span class="table-td__text"> {{ name.name }}  </span>
-            </a>
-
-            <span v-else-if="name.icon" class="table-td__icon">
-              <icon-component 
-                :IconName="name.icon"
+            <span class="table-th__icon">
+              <icon-component
+                :IconName="key.icon"
                 :IconSize="'1x'"
-                :color="name.color"
-              />
-              <span class="table-td__text"> {{ name.text }} </span>
+              ></icon-component>
+            </span>
+          
+            <span class="table-th__title">
+              {{ key.title }}
             </span>
 
-            <popup-window 
-              v-else-if="name === 'action'" 
-              :action="component.action.list" 
-              :target="value"
-              > 
-              {{ component.action.name }}
-            </popup-window>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          v-for="(value, index) in filteredTable"
+          :key="index"
+          class="table-tr"
+        >
+          <td
+            v-for="(name, index) in value"
+            :key="index"
+            class="table-td">
 
-            <span v-else class="table-td__text">
-              {{ name }}
-            </span>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+              <a
+                v-if="name.name"
+                :href="name.link"
+                class="table-td__link"
+              >
+                <span class="table-td__text"> {{ name.name }}  </span>
+              </a>
+
+              <span v-else-if="name.icon" class="table-td__icon">
+                <icon-component
+                  :IconName="name.icon"
+                  :IconSize="'1x'"
+                  :color="name.color"
+                />
+                <span class="table-td__text"> {{ name.text }} </span>
+              </span>
+
+              <popup-window
+                v-else-if="name === 'action'" 
+                :action="component.action.list" 
+                :target="value"
+                >
+                {{ component.action.name }}
+              </popup-window>
+
+              <span v-else class="table-td__text">
+                {{ name }}
+              </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 </template>
 
@@ -137,14 +139,23 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+.container {
+  @media (max-width: $screen) {
+    overflow-x: scroll;
+  }
+}
 .component-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   &__title {
     font: 500 20px $font;
+    overflow-x: hidden;
+    @media (max-width: $screen) {
+      font-size: 16px;
+    }
   }
-  &-input {
+  &-search {
     width: 260px;
     position: relative;
     display: block;
@@ -152,17 +163,23 @@ export default Vue.extend({
     background: $bgcolor;
     color: $subcolor;
     border: 1px solid $tablecolor;
-    border-radius: 20px;
+    border-radius: 15px;
+    @media (max-width: $screen) {
+      width: 130px;
+    }
     &__icon {
       position: absolute;
       top: 7px;
       left: 10px;
     }
-    &__text {
+    &__input {
       padding-left: 30px;
-      font: 400 18px $font;
+      font-weight: 400;
       background: $bgcolor;
       border: none;
+      @media (max-width: $screen) {
+        font-size: 14px;
+      }
       &:focus, &:active {
         border: none;
         outline: none;
@@ -194,9 +211,11 @@ export default Vue.extend({
     }
     &__title {
       margin-top: 5px;
-      font-size: 18px;
       font-weight: 400;
       vertical-align: middle;
+      @media (max-width: $screen) {
+        font-size: 15px;
+      }
     }
   }
   &-td {
@@ -224,6 +243,5 @@ export default Vue.extend({
       vertical-align: middle;
     }
   }
-
 }
 </style>

@@ -50,13 +50,13 @@ export default Vue.extend({
       content: {'name': ''} as PageModel | undefined,
     }
   },
-  /**
-  *  Данные из конфига
-  * @type {Array<SectionModel>}
-  */
   props: {
-    data: Array as PropType<SectionModel[]> 
-  },
+    /**
+    *  Данные из конфига
+    * @type {Array<SectionModel>}
+    */
+    data: Array as PropType<SectionModel[]>
+    },
   mounted() {
     /**
     *  Соотносим id и page из роута c категорией и страницей
@@ -87,20 +87,34 @@ export default Vue.extend({
 <style lang="scss">
 
 .main {
+  box-sizing: border-box;
   width: 100%;
   padding: 42px 60px;
+  @media (max-width: $screen) {
+    padding: 40px 20px;
+    overflow-x: hidden;
+  }
   &__title {
     font: 400 20px $font;
     margin-bottom: 15px;
+    @media (max-width: $screen) {
+      font-size: 16px;
+    }
   }
-
   &__subtitle {
     font: 500 29px $font;
     color: $titlecolor;
     margin-bottom: 40px;
+    @media (max-width: $screen) {
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
   }
 }
 .component {
   margin-bottom: 20px;
+  @media (max-width: $screen) {
+    margin-bottom: 10px;
+  }
 }
 </style>
