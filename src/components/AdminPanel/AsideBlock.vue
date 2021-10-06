@@ -8,14 +8,17 @@
         :menu="menu"
       />
     </div>
-      <a class="aside-library" href="#">
-        <icon-component 
-          :IconName="'LayersIcon'"
-          :IconSize="'1.5x'" 
-        /> 
-        <span class="aside-library__text">Библиотека компонентов</span>
-      </a>
-    </div>
+    <a
+      class="aside-library"
+      href="#"
+    >
+      <icon-component 
+        :iconName="'LayersIcon'"
+        :icon-size="'1.5x'" 
+      /> 
+      <span class="aside-library__text">Библиотека компонентов</span>
+    </a>
+  </div>
 </template>
 
 <script lang="ts">
@@ -28,27 +31,27 @@ import SettingModel from '../../interfaces/Setting'
 
 export default Vue.extend({
   name: 'AsideBlock',
-    components: {
-      IconComponent, LogoSettings, NavBlock
-    },
-    props: {
-      /**
+  components: {
+    IconComponent, LogoSettings, NavBlock
+  },
+  props: {
+    /**
       *  Данные из конфига
       * @type {Array<SectionModel[]>}
       */
-      menu: {
-        required: true,
-        type: Array as PropType<SectionModel[]>
-      },
-      /**
+    menu: {
+      required: true,
+      type: Array as PropType<SectionModel[]>
+    },
+    /**
       *  Данные настроек 
       * @type {Array<SettingModel[]>}
       */
-      setting: {
-        required: true,
-        type: Array as PropType<SettingModel[]>
-      }
+    setting: {
+      required: true,
+      type: Array as PropType<SettingModel[]>
     }
+  }
 })
 </script>
 

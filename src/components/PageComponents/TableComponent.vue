@@ -1,58 +1,59 @@
 <template>
-<div>
-  <div class="component-header">
-    <p class="component-header__title">{{ component.name }}</p>
+  <div>
+    <div class="component-header">
+      <p class="component-header__title">{{ component.name }}</p>
       <div
         v-if="component.search"
         class="component-header-search"
       >
         <icon-component 
-          :IconName="'SearchIcon'"
-          :IconSize="'1x'" 
+          :iconName="'SearchIcon'"
+          :icon-size="'1x'" 
           class="component-header-search__icon"
         />
         <input 
+          v-model="search" 
           type="text" 
-          placeholder="Поиск" 
-          v-model="search"
+          placeholder="Поиск"
           class="component-header-search__input"
-        />
-      </div>
-  </div>
-  <div class="container">
-    <table class="table">
-      <thead>
-        <tr>
-          <th
-            v-for="key in component.keys"
-            :key="key.id"
-            class="table-th"
-          >
-
-            <span class="table-th__icon">
-              <icon-component
-                :IconName="key.icon"
-                :IconSize="'1x'"
-              ></icon-component>
-            </span>
-          
-            <span class="table-th__title">
-              {{ key.title }}
-            </span>
-
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="(value, index) in filteredTable"
-          :key="index"
-          class="table-tr"
         >
-          <td
-            v-for="(name, index) in value"
+      </div>
+    </div>
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th
+              v-for="key in component.keys"
+              :key="key.id"
+              class="table-th"
+            >
+
+              <span class="table-th__icon">
+                <icon-component
+                  :iconName="key.icon"
+                  :icon-size="'1x'"
+                />
+              </span>
+          
+              <span class="table-th__title">
+                {{ key.title }}
+              </span>
+
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="(value, index) in filteredTable"
             :key="index"
-            class="table-td">
+            class="table-tr"
+          >
+            <td
+              v-for="(name, index) in value"
+              :key="index"
+              class="table-td"
+            >
 
               <a
                 v-if="name.name"
@@ -62,10 +63,13 @@
                 <span class="table-td__text"> {{ name.name }}  </span>
               </a>
 
-              <span v-else-if="name.icon" class="table-td__icon">
+              <span
+                v-else-if="name.icon"
+                class="table-td__icon"
+              >
                 <icon-component
-                  :IconName="name.icon"
-                  :IconSize="'1x'"
+                  :iconName="name.icon"
+                  :icon-size="'1x'"
                   :color="name.color"
                 />
                 <span class="table-td__text"> {{ name.text }} </span>
@@ -75,37 +79,34 @@
                 v-else-if="name === 'action'" 
                 :action="component.action.list" 
                 :target="value"
-                >
+              >
                 {{ component.action.name }}
               </popup-window>
 
-              <span v-else class="table-td__text">
+              <span
+                v-else
+                class="table-td__text"
+              >
                 {{ name }}
               </span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
 </template>
 
 <script lang="ts">
 import Vue, {PropType} from 'vue';
 import PopupWindow from '../PopupWindow.vue'
-import { TableModel } from "../../interfaces/Component"
+import { TableModel } from '../../interfaces/Component'
 import IconComponent from  '../IconComponent.vue'
 
 export default Vue.extend({
   name: 'TableComponent',
-  data() {
-    return {
-      /**
-      * Текст из поля поиска 
-      * @type {string}
-      */
-      search: '' as string
-    }
+  components: { 
+    PopupWindow, IconComponent
   },
   props: { 
     /**
@@ -117,8 +118,14 @@ export default Vue.extend({
       type: Object as PropType<TableModel>
     } 
   },
-  components: { 
-    PopupWindow, IconComponent
+  data() {
+    return {
+      /**
+      * Текст из поля поиска 
+      * @type {string}
+      */
+      search: '' as string
+    }
   },
   computed: {
     /**

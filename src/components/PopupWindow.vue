@@ -7,23 +7,29 @@
       <slot />
     </button>
 
-    <div class="popup" v-if="isOpen">
+    <div
+      v-if="isOpen"
+      class="popup"
+    >
       <div class="popup-inner">
         <ul class="popup-ul">
           <li 
             v-for="(item, index) in action" 
             :key="index"
-            @click="Action(item.action)" 
-            class="popup-li"
+            class="popup-li" 
+            @click="Action(item.action)"
           >
-            <p v-if="item.objectName == true" class="popup-li__text">
+            <p
+              v-if="item.objectName == true"
+              class="popup-li__text"
+            >
               {{ item.title }} {{ target.name }}
             </p> 
             <p v-else>
               <icon-component 
                 v-if="item.icon"
-                :IconName="item.icon"
-                :IconSize="'1.4x'"
+                :iconName="item.icon"
+                :icon-size="'1.4x'"
                 class="popup-li__icon"
               />
               <span class="popup-li__text"> {{ item.title }} </span> 
@@ -41,17 +47,8 @@ import IconComponent from './IconComponent.vue'
 import { PopUpModel } from '../interfaces/Menu'
 
 export default Vue.extend({
-  name: "PopupWindow",
+  name: 'PopupWindow',
   components: { IconComponent },
-  data() {
-    return {
-      /**
-      * Состояние popup
-      * @type {boolean}
-      */
-      isOpen: false as boolean
-    }
-  },
   props: { 
     /**
      * Список элементов popup
@@ -64,16 +61,25 @@ export default Vue.extend({
      */
     target: Object
   },
-    methods: {
+  data() {
+    return {
       /**
+      * Состояние popup
+      * @type {boolean}
+      */
+      isOpen: false as boolean
+    }
+  },
+  methods: {
+    /**
        * Обработчик нажатия на элемент
        * @param {any} action
        */
-      Action(action: any) {
-        console.log(action)
-        this.isOpen = false;
-      }
+    Action(action: any) {
+      console.log(action)
+      this.isOpen = false;
     }
+  }
 })
 </script>
 

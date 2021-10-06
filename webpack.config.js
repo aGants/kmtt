@@ -1,7 +1,7 @@
 const path = require('path')
 const { VueLoaderPlugin } = require('vue-loader')
-const HTMLWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const HTMLWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -46,6 +46,7 @@ module.exports = {
         loader: 'ts-loader',
         options: {
           appendTsSuffixTo: [/\.vue$/], 
+          appendTsxSuffixTo: [/\.vue$/],
         }
       },
       {

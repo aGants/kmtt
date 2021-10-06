@@ -1,9 +1,15 @@
 <template>
-  <div id="app" class="app">
-    <button class="app-burger" @click="asideStatus()" >
+  <div
+    id="app"
+    class="app"
+  >
+    <button
+      class="app-burger"
+      @click="asideStatus()"
+    >
       <icon-component 
-        :IconName="iconName" 
-        :IconSize="'1.5x'"
+        :iconName="iconName" 
+        :icon-size="'1.5x'"
       />
     </button>
     <transition name="slide">
@@ -25,6 +31,9 @@ import { mapActions, mapGetters } from 'vuex'
 
 export default Vue.extend({
   name: 'App',
+  components: {
+    AsideBlock, IconComponent
+  },
   data() {
     return {
       /**
@@ -39,14 +48,24 @@ export default Vue.extend({
       iconName: 'MenuIcon' as String,
     }
   },
-  components: {
-    AsideBlock, IconComponent
-  },
   computed: {
     ...mapGetters([
       'Config',
       'Setting'
-      ])
+    ])
+  },
+  watch: {
+    /**
+      * Закрыть боковое меню при переходе на другую страницу
+      */
+    $route() {
+      this.isAsideOpen = false;
+      this.iconName = (this.isAsideOpen) ? 'XIcon' : 'MenuIcon';
+    }
+  },
+  created() {
+    this.getConfig()
+    this.getSetting()
   },
   methods: {
     ...mapActions([
@@ -57,23 +76,10 @@ export default Vue.extend({
     * Изменение статуса меню и иконки
     */
     asideStatus() {
-        this.isAsideOpen = !this.isAsideOpen;
-        this.iconName = (this.isAsideOpen) ? 'XIcon' : 'MenuIcon';
+      this.isAsideOpen = !this.isAsideOpen;
+      this.iconName = (this.isAsideOpen) ? 'XIcon' : 'MenuIcon';
     }
-  },
-  created() {
-    this.getConfig()
-    this.getSetting()
-  },
-    watch: {
-      /**
-      * Закрыть боковое меню при переходе на другую страницу
-      */
-      $route() {
-        this.isAsideOpen = false;
-        this.iconName = (this.isAsideOpen) ? 'XIcon' : 'MenuIcon';
-      }
-    }
+  }
 });
 </script>
 

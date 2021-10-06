@@ -1,7 +1,7 @@
 <template>
   <component
-    :is=IconName
-    :size="IconSize"
+    :is="iconName"
+    :size="iconSize"
   />
 </template>
 
@@ -27,7 +27,7 @@ export default Vue.extend({
     * Имя иконки
     * @type {string}
     */
-    IconName: {
+    iconName: {
       required: true,
       type: String,
     },
@@ -35,7 +35,7 @@ export default Vue.extend({
     * Размер иконки
     * @type {string}
     */
-    IconSize: {
+    iconSize: {
       required: true,
       type: String,
     },

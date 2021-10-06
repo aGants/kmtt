@@ -9,15 +9,15 @@
         {{ block.title }} 
       </p>
 
-       <router-link
+      <router-link
+        v-for="page in block.pages"
+        :key="page.id"
         class="nav-ul-li"
         active-class="active"
         tag="li"
-        v-for="page in block.pages"
-        :key="page.id"
-        :to="{ name: 'Page', params: { id: block.id, page: page.id }  }"
+        :to="{ name: 'Page', params: { id: block.id, page: page.id } }"
       >
-          {{ page.name }}
+        {{ page.name }}
       </router-link>
 
     </ul>

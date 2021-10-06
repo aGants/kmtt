@@ -47,17 +47,17 @@ export default new Vuex.Store({
      * Получаем конфиг с бэка
      */
 
-    //   return axios(('URL'), {
-    //     method: "GET"
-    //   })
-    //     .then((config) => {
-    //       commit('setConfig', config);
-    //       return config
-    //     })
-    // }
+      //   return axios(('URL'), {
+      //     method: "GET"
+      //   })
+      //     .then((config) => {
+      //       commit('setConfig', config);
+      //       return config
+      //     })
+      // }
 
-    commit('setConfig', config);
-    return config
+      commit('setConfig', config);
+      return config
     },
 
     /**
@@ -75,7 +75,7 @@ export default new Vuex.Store({
      * @return Array<SectionModel>
      */
     Config: state => state.config,
-     /**
+    /**
      * Возвращаем данные 
      * @return Array<SettingModel>
      */

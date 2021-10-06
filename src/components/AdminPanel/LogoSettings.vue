@@ -17,7 +17,10 @@
         <popup-window 
           :action="setting"
         >
-          <icon-component :IconName="'ChevronDownIcon'" :IconSize="'1.8x'"/>
+          <icon-component
+            :iconName="'ChevronDownIcon'"
+            :icon-size="'1.8x'"
+          />
         </popup-window>
       </span>
     </div>

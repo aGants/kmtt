@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "serve": "webpack-dev-server --mode development --history-api-fallback",
-    "eslint": "eslint './src/*.{js,ts,tsx,vue}'",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "eslint": "eslint \"**/*.{ts,tsx,vue}\" --fix"
   },
   "author": "Adelia Gantseva",
   "license": "ISC",

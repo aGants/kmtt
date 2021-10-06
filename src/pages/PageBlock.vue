@@ -4,13 +4,12 @@
     <p class="main__subtitle">{{ content.name }}</p>
     <section class="main-content">
       <component
-        v-for="component in content.components" 
+        :is="component.type" 
+        v-for="component in content.components"
         :key="component.id"
-        :is="component.type"
         :component="component"
         class="component"
-        >
-      </component>
+      />
     </section>
   </main>
 </template>
@@ -25,6 +24,13 @@ export default Vue.extend({
   name: 'PageBlock',
   components: {
     ButtonComponent, TableComponent
+  },
+  props: {
+    /**
+    *  Данные из конфига
+    * @type {Array<SectionModel>}
+    */
+    data: Array as PropType<SectionModel[]>
   },
   data() {
     return {
@@ -50,13 +56,17 @@ export default Vue.extend({
       content: {'name': ''} as PageModel | undefined,
     }
   },
-  props: {
+  watch: {
     /**
-    *  Данные из конфига
-    * @type {Array<SectionModel>}
+    * При переходе на страницу принимаем id и page из роута, и соотносим их с id категории и страницы
     */
-    data: Array as PropType<SectionModel[]>
-    },
+    $route(toRoute) {
+      this.id = toRoute.params['id']
+      this.page = toRoute.params['page']
+      this.section = (this.data !== undefined) ? (this.data.find((x) => x.id == this.id)) : undefined;
+      this.content = (this.section !== undefined) ? (this.section.pages.find((i) => i.id == this.page)) :undefined;
+    }
+  },
   mounted() {
     /**
     *  Соотносим id и page из роута c категорией и страницей
@@ -68,17 +78,6 @@ export default Vue.extend({
     */
     if (this.content === undefined) {
       this.$router.push('/404')
-    }
-  },
-  watch: {
-    /**
-    * При переходе на страницу принимаем id и page из роута, и соотносим их с id категории и страницы
-    */
-    $route(toRoute) {
-      this.id = toRoute.params['id']
-      this.page = toRoute.params['page']
-      this.section = (this.data !== undefined) ? (this.data.find((x) => x.id == this.id)) : undefined;
-      this.content = (this.section !== undefined) ? (this.section.pages.find((i) => i.id == this.page)) :undefined;
     }
   }
 })
