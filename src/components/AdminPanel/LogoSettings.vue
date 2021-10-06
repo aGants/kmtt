@@ -34,6 +34,10 @@ export default Vue.extend({
   name: 'LogoSettings',
   components: { PopupWindow, IconComponent },
   props: {
+    /**
+    *  Данные: настройки меню
+    * @type {Array<SettingModel[]>}
+    */
     setting: {
       type: Array as PropType<SettingModel[]>
     }

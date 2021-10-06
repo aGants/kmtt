@@ -29,6 +29,10 @@ import Vue, { PropType } from 'vue'
 import { SectionModel } from '../../interfaces/Menu'
 
 export default Vue.extend({
+  /**
+  *  Данные из конфига
+  * @type {Array<SectionModel[]>}
+  */
   props: {
     menu: Array as PropType<SectionModel[]>
   }

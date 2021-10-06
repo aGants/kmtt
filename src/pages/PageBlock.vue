@@ -28,23 +28,52 @@ export default Vue.extend({
   },
   data() {
     return {
+      /**
+      *  Принимаем id из роута
+      * @type string
+      */
       id: this.$route.params['id'] as string,
+      /**
+      *  Принимает page из роута
+      * @type string
+      */
       page: this.$route.params['page'] as string,
+      /**
+      *  Данные категории страницы
+      * @type {PageModel | underfined}
+      */
       section: {'title': ''} as SectionModel | undefined,
+      /**
+      * Данные страницы
+      * @type {PageModel | underfined}
+      */
       content: {'name': ''} as PageModel | undefined,
     }
   },
+  /**
+  *  Данные из конфига
+  * @type {Array<SectionModel>}
+  */
   props: {
     data: Array as PropType<SectionModel[]> 
   },
   mounted() {
+    /**
+    *  Соотносим id и page из роута c категорией и страницей
+    */
     this.section = (this.data !== undefined) ? (this.data.find((x) => x.id == this.id)) : undefined;
     this.content = (this.section !== undefined) ? (this.section.pages.find((i) => i.id == this.page)) : undefined;
+    /**
+    *  При переходе на несуществующую страницу, переадресуем на страницу 404
+    */
     if (this.content === undefined) {
       this.$router.push('/404')
     }
   },
   watch: {
+    /**
+    * При переходе на страницу принимаем id и page из роута, и соотносим их с id категории и страницы
+    */
     $route(toRoute) {
       this.id = toRoute.params['id']
       this.page = toRoute.params['page']

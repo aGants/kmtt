@@ -98,17 +98,31 @@ export default Vue.extend({
   name: 'TableComponent',
   data() {
     return {
+      /**
+      * Текст из поля поиска 
+      * @type {string}
+      */
       search: '' as string
     }
   },
-  props: { component: {
-    required: true,
-    type: Object as PropType<TableModel>
-    } },
+  props: { 
+    /**
+    * Данные таблицы
+    * @type {Object<TableModel>}
+    */
+    component: {
+      required: true,
+      type: Object as PropType<TableModel>
+    } 
+  },
   components: { 
     PopupWindow, IconComponent
   },
   computed: {
+    /**
+    * Вывод данных таблицы, отфильтрованных по значению поля поиска
+    * @return {Array<any>}
+    */
     filteredTable(): Array<any> {
       if (this.component.searchKey) {
         const key: string = this.component.searchKey 

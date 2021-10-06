@@ -11,11 +11,19 @@ import { ButtonModel } from "../../interfaces/Component"
 export default Vue.extend({
   name: 'ButtonComponent',
   props: { 
+    /**
+    * Данные кнопки
+    * @type {Object<ButtonModel>}
+    */
     component: {
       required: true,
       type: Object as PropType<ButtonModel>
     }
   },
+  /**
+  * Обработчик нажатия на кнопку
+  * @param {string} url
+  */
   methods: {
     Action(url: string) {
       this.$router.push(url)

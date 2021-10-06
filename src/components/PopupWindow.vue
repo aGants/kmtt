@@ -45,17 +45,33 @@ export default Vue.extend({
   components: { IconComponent },
   data() {
     return {
+      /**
+      * Состояние popup
+      * @type {boolean}
+      */
       isOpen: false as boolean
     }
   },
   props: { 
+    /**
+     * Список элементов popup
+     * @type {Array<any>}
+     */
     action: Array as PropType<PopUpModel[]>, 
+    /**
+     * Данные вызывающего popup элемента
+     * @type {Object}
+     */
     target: Object
   },
     methods: {
-      Action(target: any) {
-      console.log(target)
-      this.isOpen = false;
+      /**
+       * Обработчик нажатия на элемент
+       * @param {any} action
+       */
+      Action(action: any) {
+        console.log(action)
+        this.isOpen = false;
       }
     }
 })

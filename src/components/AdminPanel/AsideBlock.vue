@@ -32,10 +32,18 @@ export default Vue.extend({
       IconComponent, LogoSettings, NavBlock
     },
     props: {
+      /**
+      *  Данные из конфига
+      * @type {Array<SectionModel[]>}
+      */
       menu: {
         required: true,
         type: Array as PropType<SectionModel[]>
       },
+      /**
+      *  Данные настроек 
+      * @type {Array<SettingModel[]>}
+      */
       setting: {
         required: true,
         type: Array as PropType<SettingModel[]>

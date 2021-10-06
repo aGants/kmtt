@@ -23,10 +23,18 @@ export default Vue.extend({
     SearchIcon, LayersIcon
   },
   props: {
+    /**
+    * Имя иконки
+    * @type {string}
+    */
     IconName: {
       required: true,
       type: String,
     },
+    /**
+    * Размер иконки
+    * @type {string}
+    */
     IconSize: {
       required: true,
       type: String,
