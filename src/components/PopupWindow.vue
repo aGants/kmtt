@@ -22,7 +22,7 @@
             <p v-else>
               <icon-component 
                 v-if="item.icon"
-                IconName="item.icon"
+                :IconName="item.icon"
                 :IconSize="'1.4x'"
                 class="popup-li__icon"
               />
@@ -38,7 +38,7 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue';
 import IconComponent from './IconComponent.vue'
-import PopUpModel from '../interfaces/Component'
+import { PopUpModel } from '../interfaces/Menu'
 
 export default Vue.extend({
   name: "PopupWindow",

@@ -1,4 +1,4 @@
-export default interface TableModel {
+export interface TableModel {
   id: string;
   name: string;
   type: string,
@@ -8,7 +8,7 @@ export default interface TableModel {
   action: []
 }
 
-export default interface ButtonModel {
+export interface ButtonModel {
   id: string;
   name: string;
   type: string,

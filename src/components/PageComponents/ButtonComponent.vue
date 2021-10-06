@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import ButtonModel from "../../interfaces/Component"
+import { ButtonModel } from "../../interfaces/Component"
 
 export default Vue.extend({
   name: 'ButtonComponent',

@@ -27,7 +27,7 @@
 <script lang="ts">
 import Vue, {PropType} from 'vue'
 import PopupWindow from '../PopupWindow.vue'
-import Setting from '../../interfaces/Setting'
+import SettingModel from '../../interfaces/Setting'
 import IconComponent from '../IconComponent.vue'
 
 export default Vue.extend({
@@ -35,7 +35,7 @@ export default Vue.extend({
   components: { PopupWindow, IconComponent },
   props: {
     setting: {
-      type: Array as PropType<Setting[]>
+      type: Array as PropType<SettingModel[]>
     }
   }
 })

@@ -91,7 +91,7 @@
 <script lang="ts">
 import Vue, {PropType} from 'vue';
 import PopupWindow from '../PopupWindow.vue'
-import TableModel from "../../interfaces/Component"
+import { TableModel } from "../../interfaces/Component"
 import IconComponent from  '../IconComponent.vue'
 
 export default Vue.extend({

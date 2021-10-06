@@ -2,16 +2,16 @@ import Vue from 'vue';
 import Vuex from 'vuex'
 import config from '../config/config.json'
 import setting from '../config/setting.json'
-import Setting from '../interfaces/Setting'
-import Section from '../interfaces/Setting'
+import SettingModel from '../interfaces/Setting'
+import { SectionModel } from '../interfaces/Menu'
 // import axios from 'axios';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    config: [] as Array<Section>,
-    setting: setting as Array<Setting>
+    config: [] as Array<SectionModel>,
+    setting: setting as Array<SettingModel>
   },
   mutations: {
     setConfig: (state, config: Array<any>) => {
